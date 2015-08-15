@@ -17,13 +17,17 @@
         document.documentElement.className =
             document.documentElement.className.replace("no-js", "js");
         grunticon(["css/grunticon-icons.data.svg.css", "css/grunticon-icons.data.png.css", "css/grunticon-icons.fallback.css"], grunticon.svgLoadedCallback);
+
+        // ie10 detect
+        if (Function('/*@cc_on return document.documentMode===10@*/')()){
+            document.documentElement.className+=' ie10';
+        }
     </script>
     <noscript>
         <link href="{{assets}}/css/grunticon-icons.fallback.css" rel="stylesheet">
     </noscript>
     <!--[if lte IE 9]>
     <script src="{{assets}}/js/lib/html5shiv.min.js"></script>
-    <link rel="stylesheet" href="css/oldie.min.css">
     <![endif]-->
     <!--[if lt IE 9]>
     <script src="{{assets}}/js/lib/es5-shim.min.js"></script>

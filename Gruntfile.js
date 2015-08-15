@@ -34,7 +34,9 @@ module.exports = function(grunt) {
         '<%= config.src %>/_svg/_svgmin',
         '<%= config.src %>/img/svg/png-grunticon',
         '<%= config.src %>/css/grunticon*'
-      ]
+      ],
+      dist:
+        '<%= config.dist %>'
     },
 
 
@@ -66,7 +68,7 @@ module.exports = function(grunt) {
           dest: '<%= config.src %>'
         }],
         options: {
-          cssprefix    : '.aa-icon_',
+          cssprefix    : '.icon-',
           datasvgcss   : 'css/grunticon-icons.data.svg.css',
           datapngcss   : 'css/grunticon-icons.data.png.css',
           urlpngcss    : 'css/grunticon-icons.fallback.css',
@@ -107,7 +109,7 @@ module.exports = function(grunt) {
 
 
     copy: {
-      assets: {
+      dist: {
         expand: true,
         cwd: '<%= config.src %>',
         src: [
@@ -176,14 +178,13 @@ module.exports = function(grunt) {
   }
 
   grunt.registerTask('l', [
-    'copy:assets',
-    'copy:source',
+    'copy:dist',
     'ftp_l'
   ]);
 
   grunt.registerTask('m', [
-    'copy:assets',
-    'copy:source',
+    'clean:dist',
+    'copy:dist',
     'ftp_m'
   ]);
 

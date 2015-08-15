@@ -1,4 +1,3 @@
 {
-  "exit": [".aa-account-panel__exit:before"],
-  "account-menu": [".aa-account-menu__toggle:before"]
+  "example": [".ex:before"]
 }

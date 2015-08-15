@@ -9,55 +9,83 @@ PLleft: 0
 ---
 
 <div class="container">
-  <table class="flights">
-    <col width="40">
-    <col>
-    <col>
-    <col>
-    <col>
-    <col>
-    <col>
-    <tbody>
-      {{#each flights}}
+  <div class="flights">
+    <h1 class="flights__caption">Flights schedule</h1>
+    <table class="flights__table">
+      <thead>
         <tr>
-          <td>
-            {{#is type "ARRIVAL"}}
-              <span class="flights__type" title="ARRIVAL">↓</span>
-            {{/is}}
-            {{#is type "DEPARTURE"}}
-              <span class="flights__type" title="DEPARTURE">↑</span>
-            {{/is}}
-          </td>
-          <td>{{id}}</td>
-          <td>
-            <a href="#" class="flights__company-logo" title="{{title}} flights">
-              <img src="http://www.heathrow.com/{{src}}" alt="{{title}} flights" width="40" height="40">
-            </a>
-            <span class="flights__title">{{title}}</span>
-          </td>
-          <td>{{airship}}</td>
-          <td>
-            {{#is type "ARRIVAL"}}
-              from {{from}}, {{city}}
-            {{/is}}
-            {{#is type "DEPARTURE"}}
-              to {{from}}, {{city}}
-            {{/is}}
-          </td>
-          <td>
-            <span class="flights__state">{{state}}{{#isnt at "undefined"}} at {{at}}{{/isnt}}</span>
-          </td>
-          <td>
-            {{#if isCommented}}
-              <small class="text-muted">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
-            {{else}}
-              &nbsp;
-            {{/if}}
-          </td>
+          <th>Type</th>
+          <th>Flight</th>
+          <th>Company</th>
+          <th>Plane type</th>
+          <th>Arrival/Destination Point</th>
+          <th>State</th>
+          <th>Time</th>
+          <th>Comment</th>
         </tr>
-      {{/each}}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {{#each flights}}
+          <tr>
+            <td class="flights__cell flights__cell--type">
+              {{#is type "ARRIVAL"}}
+                <span class="flights__type" title="arrival">arrival <i class="icon icon-arrow-up-right"></i></span>
+              {{/is}}
+              {{#is type "DEPARTURE"}}
+                <span class="flights__type" title="departure">departure <i class="icon icon-arrow-down-right"></i></span>
+              {{/is}}
+            </td>
+            <td class="flights__cell flights__cell--id">
+              {{id}}
+            </td>
+            <td class="flights__cell flights__cell--company">
+              <span class="flights__company-logo" title="{{title}} flights">
+                <img src="http://www.heathrow.com/{{src}}" alt="{{title}} flights" width="40" height="40">
+              </span>
+              <span class="flights__company">{{title}}</span>
+            </td>
+            <td class="flights__cell">
+              {{airship}}
+            </td>
+            <td class="flights__cell">
+              {{#is type "ARRIVAL"}}
+                from {{from}}, {{city}}
+              {{/is}}
+              {{#is type "DEPARTURE"}}
+                to {{from}}, {{city}}
+              {{/is}}
+            </td>
+            <td class="flights__cell">
+              {{#is state "Delayed"}}
+                <span class="text-error">{{state}} till {{state_delayed}}</span>
+              {{else}}
+                {{#is state "Cancelled"}}
+                  <span class="text-error">{{state}}</span>
+                {{else}}
+                  {{state}}
+                {{/is}}
+              {{/is}}
+              </span>
+            </td>
+            <td class="flights__cell flights__cell--time">
+              {{#is state "Delayed"}}
+                  <span class="text-muted">{{at}}</span>
+                {{else}}
+                  {{at}}
+                {{/is}}
+              </td>
+            <td class="flights__cell flights__cell--comment">
+              {{#if isCommented}}
+              <span class="flights__comment"><a href="https://referat.yandex.ru/referats/" target="blank">Далеко-далеко</a> за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
+              {{else}}
+                &nbsp;
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </div>
 
 {{#unless onProduction}}

@@ -1104,7 +1104,6 @@ html {
 .flights {
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 1px rgba(0,0,0,0.2);
 }
 .flights__table {
   width: 100%;
@@ -1125,12 +1124,10 @@ html {
   text-align: left;
   position: relative;
 }
-.flights td,
-.flights th {
+.flights td {
   position: relative;
 }
-.flights td:hover:after,
-.flights th:hover:after {
+.flights td:hover:after {
   content: '';
   position: absolute;
   box-shadow: 0 0 0 1px #434343;
@@ -1213,6 +1210,11 @@ html {
 }
 .radio__inp:checked + .checkbox__ind:after {
   position: absolute;
+}
+.lte-ie9 body,
+.no-js body,
+.ie10 body {
+  background-color: #f00 !important;
 }
 @media (max-width: 759px) {
 

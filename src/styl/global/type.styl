@@ -65,10 +65,9 @@ h5
 h6
 .h6
   display block
-  font-family ff_base
   font-weight 700
   margin 0
-  color c_base
+  color $c_base
 
 // h1
 // .h1
@@ -100,8 +99,8 @@ h6
 //   font-size fz_huge
 //   font-weight 600
 
-// .muted
-//   color c_muted
+.text-muted
+  color $c_muted
 
 // strong
 //   font-weight 700
@@ -113,6 +112,9 @@ h6
 
 // .text-huge
 //   font-size fz_huge
+
+.text-error
+  color $c_error
 
 
 
@@ -142,12 +144,15 @@ h6
 // =========================
 table
   border-collapse collapse
-  border-spacing 0
+  border-spacing separate
 
   td
   th
     padding 5px 10px
-    border-top 1px solid #000
+    border-bottom 1px solid $bd_gray
+    border-top 1px solid $bd_gray
+
+
 
 
 
@@ -159,17 +164,15 @@ table
 // Links
 // =========================
 a
-  color c_link
+  color $c_link
   text-decoration underline
 
   &:hover
-    color c_link
     text-decoration none
 
   &:active
   &:focus
     outline none
-    color c_link
     text-decoration none
 
 
