@@ -3,7 +3,7 @@
 
 $(document).ready(function() {
 
-  document.querySelector('.js-dropdown') && dropdown.init();
+  document.querySelector('#js-table') && table.init();
 
 
 

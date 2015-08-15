@@ -1,12 +1,13 @@
 .flights
-  overflow hidden
   position relative
-  box-shadow 0 0 1px rgba(0,0,0,.2)
 
 
   &__table
     width 100%
+    box-shadow 0 0 1px rgba(0,0,0,.2)
     overflow hidden
+    position relative
+
 
   &__caption
     font-size 30px
@@ -18,7 +19,6 @@
   thead
     background #fff
 
-  th
   td
     text-align left
     position relative
@@ -49,8 +49,13 @@
     &:after
       display none
 
-  th
+  &__head-cell
+    display table-cell
     padding 16px 12px
+    text-align left
+    font-weight 700
+    border-bottom 1px solid $bd_gray
+    background #fff
 
   tbody
     overflow hidden
@@ -113,3 +118,24 @@
     font-size 12px
     line-height 1
     color $c_muted
+
+
+  &__fixed
+    display table
+    table-layout fixed
+    width 100%
+    position fixed
+    top 0
+    left 0
+    right 0
+    z-index 100
+    min-width $container_min
+    max-width $container_max
+    padding-left $desk_offset
+    padding-right $desk_offset
+    margin-left auto
+    margin-right auto
+    display none
+
+    &.active
+      display block

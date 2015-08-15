@@ -1102,13 +1102,13 @@ html {
   position: absolute;
 }
 .flights {
-  overflow: hidden;
   position: relative;
-  box-shadow: 0 0 1px rgba(0,0,0,0.2);
 }
 .flights__table {
   width: 100%;
+  box-shadow: 0 0 1px rgba(0,0,0,0.2);
   overflow: hidden;
+  position: relative;
 }
 .flights__caption {
   font-size: 30px;
@@ -1120,7 +1120,6 @@ html {
 .flights thead {
   background: #fff;
 }
-.flights th,
 .flights td {
   text-align: left;
   position: relative;
@@ -1146,8 +1145,13 @@ html {
 .ie10 .flights:after {
   display: none;
 }
-.flights th {
+.flights__head-cell {
+  display: table-cell;
   padding: 16px 12px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 1px solid #e1e1e1;
+  background: #fff;
 }
 .flights tbody {
   overflow: hidden;
@@ -1191,6 +1195,26 @@ html {
   font-size: 12px;
   line-height: 1;
   color: #999;
+}
+.flights__fixed {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  min-width: 320px;
+  max-width: 1200px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+}
+.flights__fixed.active {
+  display: block;
 }
 .radio {
   position: relative;

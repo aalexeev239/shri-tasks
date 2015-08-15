@@ -44,7 +44,7 @@ gulp.task 'csslint', ->
 
 
 gulp.task 'scripts', ->
-  gulp.src [srcPath+'js/app/**.js', srcPath+'js/main.js']
+  gulp.src [srcPath+'js/app/*.js', srcPath+'js/main.js']
   .pipe plugins.plumber errorHandler: plugins.notify.onError("Error: <%= error.message %>")
   .pipe plugins.concat 'scripts.js'
   # .pipe plugins.uglify()

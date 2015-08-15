@@ -11,17 +11,17 @@ PLleft: 0
 <div class="container">
   <div class="flights">
     <h1 class="flights__caption">Flights schedule</h1>
-    <table class="flights__table">
+    <table class="flights__table" id="js-table">
       <thead>
-        <tr>
-          <th>Type</th>
-          <th>Flight</th>
-          <th>Company</th>
-          <th>Plane type</th>
-          <th>Arrival/Destination Point</th>
-          <th>State</th>
-          <th>Time</th>
-          <th>Comment</th>
+        <tr id="js-table-head">
+          <th class="flights__head-cell">Type</th>
+          <th class="flights__head-cell">Flight</th>
+          <th class="flights__head-cell">Company</th>
+          <th class="flights__head-cell">Plane type</th>
+          <th class="flights__head-cell">Arrival/Destination Point</th>
+          <th class="flights__head-cell">State</th>
+          <th class="flights__head-cell">Time</th>
+          <th class="flights__head-cell">Comment</th>
         </tr>
       </thead>
       <tbody>
@@ -84,7 +84,24 @@ PLleft: 0
           </tr>
         {{/each}}
       </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="8">
+            <a href="##" class="flights__link">Show more...</a>
+          </td>
+        </tr>
+      </tfoot>
     </table>
+    <div class="flights__fixed" id="js-table-fixed">
+      <span class="flights__head-cell">Type</span>
+      <span class="flights__head-cell">Flight</span>
+      <span class="flights__head-cell">Company</span>
+      <span class="flights__head-cell">Plane type</span>
+      <span class="flights__head-cell">Arrival/Destination Point</span>
+      <span class="flights__head-cell">State</span>
+      <span class="flights__head-cell">Time</span>
+      <span class="flights__head-cell">Comment</span>
+    </div>
   </div>
 </div>
 
