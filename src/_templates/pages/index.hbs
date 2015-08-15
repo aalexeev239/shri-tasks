@@ -11,6 +11,12 @@ PLleft: 0
 <div class="container">
   <div class="flights flights--main">
     <h1 class="flights__caption">Flights schedule</h1>
+    <input type="checkbox" name="flights-sort-a" id="flights-sort-a" class="flight-checkbox" value="flights-sort-a" checked>
+    <label for="flights-sort-a">Arrival</label>
+
+    <input type="checkbox" name="flights-sort-d" id="flights-sort-d" class="flight-checkbox" value="flights-sort-d" checked>
+    <label for="flights-sort-d">Departure</label>
+
     <table class="flights__table" id="js-flight">
       <thead>
         <tr id="js-flight-head">
@@ -26,7 +32,7 @@ PLleft: 0
       </thead>
       <tbody>
         {{#each flights}}
-          <tr class="js-flight-row">
+          <tr class="js-flight-row" data-type="{{type}}">
             <td class="flights__cell flights__cell--type">
               {{#is type "ARRIVAL"}}
                 <span class="flights__type" title="arrival">Arrival <i class="icon icon-arrow-up-right"></i></span>
@@ -90,6 +96,11 @@ PLleft: 0
         <tr>
           <td colspan="8" class="flights__cell flights__cell--footer">
             <a href="##" class="flights__link-more">Show more...</a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="8" class="flights__cell flights__cell--nothing">
+            Nothing to show. Please, select something in top filter.
           </td>
         </tr>
       </tfoot>

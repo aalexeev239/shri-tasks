@@ -775,27 +775,47 @@ html {
   text-decoration: none;
   background: #262626;
 }
-.checkbox {
-  position: relative;
-}
-.checkbox__inp {
+.flight-checkbox {
   position: absolute;
   opacity: 0;
   z-index: -1;
 }
-.checkbox__ind:before {
+.flight-checkbox + label {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 20px;
+  padding: 2px 0 2px 30px;
+  font-size: 16px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.flight-checkbox + label:before {
   content: '';
   position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #434343;
+  left: 0;
+  top: 1px;
 }
-.checkbox__ind:after {
+.flight-checkbox + label:after {
   content: '';
   position: absolute;
+  left: 3px;
+  top: 5px;
+  width: 14px;
+  height: 8px;
+  border-bottom: 2px solid #6ece90;
+  border-left: 2px solid #6ece90;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.1s;
 }
-.checkbox__inp:checked + .checkbox__ind:before {
-  position: absolute;
-}
-.checkbox__inp:checked + .checkbox__ind:after {
-  position: absolute;
+.flight-checkbox:checked + label:after {
+  opacity: 1;
 }
 .flight {
   margin: 0 auto;
@@ -809,6 +829,18 @@ html {
 .flight th {
   text-align: right;
 }
+#flights-sort-a:not(:checked) ~ .flights__table tr[data-type="ARRIVAL"] {
+  display: none;
+}
+#flights-sort-d:not(:checked) ~ .flights__table tr[data-type="DEPARTURE"] {
+  display: none;
+}
+#flights-sort-a:not(:checked) ~ #flights-sort-d:not(:checked) ~ .flights__table .flights__cell--nothing {
+  display: table-cell;
+}
+#flights-sort-a:not(:checked) ~ #flights-sort-d:not(:checked) ~ .flights__table .flights__cell--footer {
+  display: none;
+}
 .flights {
   position: relative;
 /*===========================================
@@ -819,6 +851,9 @@ html {
   =            POPUP TABLE            =
   ===================================*/
 /*-----  End of POPUP TABLE  ------*/
+}
+.flights--main {
+  text-align: center;
 }
 .flights--main thead,
 .flights--main tfoot {
@@ -858,7 +893,9 @@ html {
   border-bottom-color: #434343;
 }
 .flights--main .flights__table {
+  text-align: left;
   width: 100%;
+  margin-top: 25px;
   box-shadow: 0 0 1px rgba(0,0,0,0.2);
   overflow: hidden;
   position: relative;
@@ -893,6 +930,10 @@ html {
   text-align: center;
   background: #fff;
 }
+.flights__controls {
+  text-align: center;
+  margin: 20px 0;
+}
 .flights__head-cell {
   display: table-cell;
   padding: 16px 12px;
@@ -922,6 +963,13 @@ html {
   position: relative;
   z-index: 20;
   background: #fff;
+}
+.flights__cell--nothing {
+  text-align: center;
+  padding-top: 18px;
+  padding-bottom: 17px;
+  text-align: center;
+  display: none;
 }
 .flights__company-logo {
   display: inline-block;

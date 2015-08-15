@@ -1,3 +1,26 @@
+/*=========================================
+=            CHECKBOX TOGGLING            =
+=========================================*/
+
+// combined with "not" to provide easily removing this functionality
+#flights-sort-a:not(:checked) ~ .flights__table tr[data-type="ARRIVAL"]
+  display none
+
+#flights-sort-d:not(:checked) ~ .flights__table tr[data-type="DEPARTURE"]
+  display none
+
+#flights-sort-a:not(:checked) ~ #flights-sort-d:not(:checked) ~ .flights__table
+  .flights__cell--nothing
+    display table-cell
+
+  .flights__cell--footer
+    display none
+
+/*-----  End of CHECKBOX TOGGLING  ------*/
+
+
+
+
 .flights
   position relative
 
@@ -6,6 +29,7 @@
   =                MAIN TABLE                 =
   ===========================================*/
   &--main
+    text-align center
 
     // highlighting
     thead
@@ -58,7 +82,9 @@
 
   &--main &
     &__table
+      text-align left
       width 100%
+      margin-top 25px
       box-shadow 0 0 1px rgba(0,0,0,.2)
       overflow hidden
       position relative
@@ -117,6 +143,12 @@
 
 
 
+  &__controls
+    text-align center
+    margin 20px 0
+
+
+
 
   &__head-cell
     display table-cell
@@ -151,6 +183,13 @@
       position relative
       z-index $z_flights + 10
       background #fff
+
+    &--nothing
+      text-align center
+      padding-top 18px
+      padding-bottom 17px
+      text-align center
+      display none
 
 
   &__company-logo

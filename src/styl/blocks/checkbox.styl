@@ -1,25 +1,42 @@
-.checkbox
+.flight-checkbox
+  position absolute
+  opacity 0
+  z-index -1
+
+.flight-checkbox + label
   position relative
+  display inline-block
+  vertical-align top
+  margin 0 20px
+  padding 2px 0 2px 30px
+  font-size $fz_big
+  line-height 1.2
+  cursor pointer
 
-
-  &__inp
+  &:before
+    content ''
     position absolute
+    width 20px
+    height 20px
+    border 1px solid $c_base
+    left 0
+    top 1px
+
+
+  &:after
+    content ''
+    position absolute
+    left 3px
+    top (1px + 4)
+    width 14px
+    height 8px
+    border-bottom 2px solid $c_green
+    border-left 2px solid $c_green
+    transform rotate(-45deg)
     opacity 0
-    z-index -1
+    transition opacity time
 
 
-  &__ind
-
-    &:before
-      content ''
-      position absolute
-
-    &:after
-      content ''
-      position absolute
-
-  &__inp:checked + .checkbox__ind
-    &:before
-      position absolute
-    &:after
-      position absolute
+.flight-checkbox:checked + label
+  &:after
+    opacity 1
