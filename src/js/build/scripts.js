@@ -1,51 +1,52 @@
-var table = (function() {
+var flightTable = (function() {
   'use strict';
 
-  var $table,
-      $head,
-      $fixedHead,
+  var table,
+      head,
+      fixedHead,
       startPos = 0;
 
-  // #js-table
-  // #js-table-head
-  var table = {
+  // #js-flight
+  // #js-flight-head
+  // #js-flight-fixed
+  var flightTable = {
     init: function(){
-      $table = $('#js-table');
-      $head = $('#js-table-head');
-      $fixedHead = $('#js-table-fixed');
-      startPos = $table.offset().top;
+      table = document.getElementById('js-flight');
+      head = document.getElementById('js-flight-head');
+      fixedHead = document.getElementById('js-flight-fixed');
+      startPos = table.getBoundingClientRect().top + document.body.scrollTop;
 
-      $(window).on('resize', table.recalcHead)
+      window.addEventListener('resize', flightTable.recalcHead, false);
+      window.addEventListener('scroll', flightTable.onWindowScroll, false);
+
       this.recalcHead();
-
-      $(window).on('scroll', table.onWindowScroll)
     },
     recalcHead: function(){
-      $head.children().each(function(index, el) {
-        $fixedHead.children().eq(index).css('width', $(el).outerWidth())
-      });
+      var hCells = head.children,
+          fCells = fixedHead.children;
+
+      for (var i = hCells.length - 1; i >= 0; i--) {
+        fCells[i].style.width = hCells[i].offsetWidth + 'px';
+      };
     },
     onWindowScroll: function(ev){
-      var curS = $(window).scrollTop();
+      var curS = window.pageYOffset;
+
       if ((curS >= startPos)) {
-        $fixedHead.addClass('active')
-      } else if ($fixedHead.hasClass('active')) {
-        $fixedHead.removeClass('active')
+        fixedHead.classList.add('active');
+      } else {
+        fixedHead.classList.remove('active');
       }
     }
   };
 
-  return table;
+  return flightTable;
 }());
 
 // Андрей Алексеев [AA]
 // alexeev.andrey.a@gmail.com
+document.addEventListener("DOMContentLoaded", function(event) {
 
-$(document).ready(function() {
-
-  document.querySelector('#js-table') && table.init();
-
-
+  document.querySelector('#js-flight') && flightTable.init();
 
 });
-// END doc.ready

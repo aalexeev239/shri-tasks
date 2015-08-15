@@ -46,14 +46,14 @@
 <div class="container">
   <div class="flights">
     <h1 class="flights__caption">Flights schedule</h1>
-    <table class="flights__table" id="js-table">
+    <table class="flights__table" id="js-flight">
       <thead>
-        <tr id="js-table-head">
+        <tr id="js-flight-head">
           <th class="flights__head-cell">Type</th>
           <th class="flights__head-cell">Flight</th>
           <th class="flights__head-cell">Company</th>
           <th class="flights__head-cell">Plane type</th>
-          <th class="flights__head-cell">Arrival/Destination Point</th>
+          <th class="flights__head-cell">Arrival / Destination</th>
           <th class="flights__head-cell">State</th>
           <th class="flights__head-cell">Time</th>
           <th class="flights__head-cell">Comment</th>
@@ -77,14 +77,16 @@
               </span>
               <span class="flights__company">British Airways</span>
             </td>
-            <td class="flights__cell">
-              Airbus A330-300
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="KGS">
               
                 from KGS, Kos
               
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -122,14 +124,16 @@
               </span>
               <span class="flights__company">Air Canada</span>
             </td>
-            <td class="flights__cell">
-              Airbus A330-300
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="DEL">
               
                 from DEL, Delhi
               
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -167,14 +171,16 @@
               </span>
               <span class="flights__company">British Airways</span>
             </td>
-            <td class="flights__cell">
-              Boeing 717-200
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="GLA">
               
               
                 to GLA, Glasgow
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -212,14 +218,16 @@
               </span>
               <span class="flights__company">Iberia</span>
             </td>
-            <td class="flights__cell">
-              Boeing 757-200
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="B757">Boeing 757-200</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="GLA">
               
               
                 to GLA, Glasgow
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -257,14 +265,16 @@
               </span>
               <span class="flights__company">Jet Airways</span>
             </td>
-            <td class="flights__cell">
-              Boeing 757-200
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="B757">Boeing 757-200</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="BOM">
               
               
                 to BOM, Mumbai
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -302,14 +312,16 @@
               </span>
               <span class="flights__company">Air India</span>
             </td>
-            <td class="flights__cell">
-              Airbus A330-300
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="DEL">
               
                 from DEL, Delhi
               
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -342,19 +354,21 @@
               BA1495
             </td>
             <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Very loooooooooooooooong British Company flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="Very loooooooooooooooong British Company flights" width="40" height="40">
+              <span class="flights__company-logo" title="Very looooooooooooong British Company flights">
+                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="Very looooooooooooong British Company flights" width="40" height="40">
               </span>
-              <span class="flights__company">Very loooooooooooooooong British Company</span>
+              <span class="flights__company">Very looooooooooooong British Company</span>
             </td>
-            <td class="flights__cell">
-              Airbus A330-300
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="GLA">
               
                 from GLA, Glasgow
               
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -390,14 +404,16 @@
               </span>
               <span class="flights__company">EVA Air</span>
             </td>
-            <td class="flights__cell">
-              Airbus A330-300
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="TPE">
               
                 from TPE, Taipei
               
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -435,14 +451,16 @@
               </span>
               <span class="flights__company">American Airlines</span>
             </td>
-            <td class="flights__cell">
-              Airbus A320
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A320">Airbus A320</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="ORY">
               
                 from ORY, Paris
               
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -480,14 +498,16 @@
               </span>
               <span class="flights__company">British Airways</span>
             </td>
-            <td class="flights__cell">
-              Airbus A320
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A320">Airbus A320</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="ORY">
               
                 from ORY, Paris
               
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -525,14 +545,16 @@
               </span>
               <span class="flights__company">British Airways</span>
             </td>
-            <td class="flights__cell">
-              Airbus A320
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A320">Airbus A320</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="KGS">
               
                 from KGS, Kos
               
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -570,14 +592,16 @@
               </span>
               <span class="flights__company">American Airlines</span>
             </td>
-            <td class="flights__cell">
-              Airbus A320
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A320">Airbus A320</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="JNB">
               
               
                 to JNB, Johannesburg
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -613,14 +637,16 @@
               </span>
               <span class="flights__company">Finnair</span>
             </td>
-            <td class="flights__cell">
-              Airbus A320
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="A320">Airbus A320</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="JNB">
               
               
                 to JNB, Johannesburg
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -658,14 +684,16 @@
               </span>
               <span class="flights__company">British Airways</span>
             </td>
-            <td class="flights__cell">
-              Boeing 717-200
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="JNB">
               
               
                 to JNB, Johannesburg
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -703,14 +731,16 @@
               </span>
               <span class="flights__company">Iberia</span>
             </td>
-            <td class="flights__cell">
-              Boeing 717-200
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="JNB">
               
               
                 to JNB, Johannesburg
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -748,14 +778,16 @@
               </span>
               <span class="flights__company">Jet Airways</span>
             </td>
-            <td class="flights__cell">
-              Boeing 717-200
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="DEL">
               
               
                 to DEL, Delhi
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -793,14 +825,16 @@
               </span>
               <span class="flights__company">Air Canada</span>
             </td>
-            <td class="flights__cell">
-              Boeing 717-200
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="DEL">
               
               
                 to DEL, Delhi
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -838,14 +872,16 @@
               </span>
               <span class="flights__company">Air Canada</span>
             </td>
-            <td class="flights__cell">
-              Boeing 757-200
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="B717">Boeing 757-200</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="BOM">
               
               
                 to BOM, Mumbai
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -883,14 +919,16 @@
               </span>
               <span class="flights__company">Virgin Atlantic</span>
             </td>
-            <td class="flights__cell">
-              Boeing 757-200
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="B717">Boeing 757-200</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="BOM">
               
               
                 to BOM, Mumbai
               
+            </span>
             </td>
             <td class="flights__cell">
               
@@ -915,23 +953,27 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="8">
-            <a href="##" class="flights__link">Show more...</a>
+          <td colspan="8" class="flights__cell flights__cell--footer">
+            <a href="##" class="flights__link-more">Show more...</a>
           </td>
         </tr>
       </tfoot>
     </table>
-    <div class="flights__fixed" id="js-table-fixed">
+    <div class="flights__fixed" id="js-flight-fixed">
       <span class="flights__head-cell">Type</span>
       <span class="flights__head-cell">Flight</span>
       <span class="flights__head-cell">Company</span>
       <span class="flights__head-cell">Plane type</span>
-      <span class="flights__head-cell">Arrival/Destination Point</span>
+      <span class="flights__head-cell">Arrival / Destination</span>
       <span class="flights__head-cell">State</span>
       <span class="flights__head-cell">Time</span>
       <span class="flights__head-cell">Comment</span>
     </div>
   </div>
+</div>
+
+<div class="popup-wrap">
+  <div class="popup" id="popup"></div>
 </div>
 
 
@@ -941,14 +983,7 @@
 
 
     </div>
-    <script src="//yastatic.net/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-      if (!window.jQuery) {
-        document.write('<script src="./js/lib/jquery2.1.3.min.js"><\/script>');
-        }
-    </script>
-    <script src="./js/build/scripts.js"></script>
-
     
+    <script src="./js/build/scripts.js"></script>
     </body>
 </html>

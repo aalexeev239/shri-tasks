@@ -2,13 +2,6 @@
   position relative
 
 
-  &__table
-    width 100%
-    box-shadow 0 0 1px rgba(0,0,0,.2)
-    overflow hidden
-    position relative
-
-
   &__caption
     font-size 30px
     padding 20px 0
@@ -16,18 +9,27 @@
     text-align center
     background #fff
 
-  thead
-    background #fff
 
-  td
-    text-align left
+
+  &__table
+    width 100%
+    box-shadow 0 0 1px rgba(0,0,0,.2)
+    overflow hidden
     position relative
 
 
 
+
+  /*===========================================
+  =            COLUMH HIGHLIGHTING            =
+  ===========================================*/
+
+  thead
+  tfoot
+    background #fff
+
   // columnn highlighting
   td
-  th
     position relative
 
     &:hover
@@ -49,20 +51,11 @@
     &:after
       display none
 
-  &__head-cell
-    display table-cell
-    padding 16px 12px
-    text-align left
-    font-weight 700
-    border-bottom 1px solid $bd_gray
-    background #fff
 
   tbody
-    overflow hidden
     tr
       position relative
-
-      // background-color #fff
+      background-color #fff
 
       &:nth-child(odd)
         td
@@ -71,11 +64,22 @@
       &:hover
         td
           box-shadow 0 1px 0 #434343, inset 0 1px 0 #434343
+  /*-----  End of COLUMH HIGHLIGHTING  ------*/
 
 
 
 
 
+
+  &__head-cell
+    display table-cell
+    padding 16px 12px
+    text-align left
+    font-weight 700
+    border-bottom 1px solid $bd_gray
+    background #fff
+    position relative
+    z-index 20
 
 
 
@@ -83,7 +87,6 @@
   // overriding default layout
   &__cell
     padding 8px 12px
-
 
     &--type
       width 40px
@@ -93,6 +96,14 @@
 
     &--comment
       width 220px
+
+    &--company
+      white-space nowrap
+
+    &--footer
+      position relative
+      z-index 20
+      background #fff
 
 
 
@@ -113,11 +124,20 @@
     display inline-block
     vertical-align middle
     max-width 140px
+    white-space normal
 
   &__comment
-    font-size 12px
-    line-height 1
+    display block
+    font-size $fz_small
+    line-height 1.2
     color $c_muted
+
+  &__link-more
+    @extends .td-reverse
+    display block
+    text-align center
+    padding 8px
+    font-size 16px
 
 
   &__fixed
@@ -139,3 +159,47 @@
 
     &.active
       display block
+
+
+@media (max-width: 999px)
+  .flights
+    position relative
+
+    &__cell
+      &--company
+        text-align center
+
+      &--comment
+        width 180px
+
+
+    &__company
+      display none
+
+    &__comment
+      font-size ($fz_small - 2)
+      line-height 1
+
+
+@media (max-width: 899px)
+  .flights
+    &__cell
+      &--point
+      &--airship
+        width 80px
+        text-align center
+
+    &__airship
+      font-size 0
+
+      &:before
+        content attr(data-short)
+        font-size $fz_base
+
+    &__point
+      font-size 0
+
+      &:before
+        content attr(data-point)
+        font-size $fz_base
+

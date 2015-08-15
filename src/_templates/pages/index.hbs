@@ -11,14 +11,14 @@ PLleft: 0
 <div class="container">
   <div class="flights">
     <h1 class="flights__caption">Flights schedule</h1>
-    <table class="flights__table" id="js-table">
+    <table class="flights__table" id="js-flight">
       <thead>
-        <tr id="js-table-head">
+        <tr id="js-flight-head">
           <th class="flights__head-cell">Type</th>
           <th class="flights__head-cell">Flight</th>
           <th class="flights__head-cell">Company</th>
           <th class="flights__head-cell">Plane type</th>
-          <th class="flights__head-cell">Arrival/Destination Point</th>
+          <th class="flights__head-cell">Arrival / Destination</th>
           <th class="flights__head-cell">State</th>
           <th class="flights__head-cell">Time</th>
           <th class="flights__head-cell">Comment</th>
@@ -44,16 +44,18 @@ PLleft: 0
               </span>
               <span class="flights__company">{{title}}</span>
             </td>
-            <td class="flights__cell">
-              {{airship}}
+            <td class="flights__cell flights__cell--airship">
+              <span class="flights__airship" data-short="{{airship_short}}">{{airship}}</span>
             </td>
-            <td class="flights__cell">
+            <td class="flights__cell flights__cell--point">
+            <span class="flights__point" data-point="{{from}}">
               {{#is type "ARRIVAL"}}
                 from {{from}}, {{city}}
               {{/is}}
               {{#is type "DEPARTURE"}}
                 to {{from}}, {{city}}
               {{/is}}
+            </span>
             </td>
             <td class="flights__cell">
               {{#is state "Delayed"}}
@@ -86,23 +88,27 @@ PLleft: 0
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="8">
-            <a href="##" class="flights__link">Show more...</a>
+          <td colspan="8" class="flights__cell flights__cell--footer">
+            <a href="##" class="flights__link-more">Show more...</a>
           </td>
         </tr>
       </tfoot>
     </table>
-    <div class="flights__fixed" id="js-table-fixed">
+    <div class="flights__fixed" id="js-flight-fixed">
       <span class="flights__head-cell">Type</span>
       <span class="flights__head-cell">Flight</span>
       <span class="flights__head-cell">Company</span>
       <span class="flights__head-cell">Plane type</span>
-      <span class="flights__head-cell">Arrival/Destination Point</span>
+      <span class="flights__head-cell">Arrival / Destination</span>
       <span class="flights__head-cell">State</span>
       <span class="flights__head-cell">Time</span>
       <span class="flights__head-cell">Comment</span>
     </div>
   </div>
+</div>
+
+<div class="popup-wrap">
+  <div class="popup" id="popup"></div>
 </div>
 
 {{#unless onProduction}}

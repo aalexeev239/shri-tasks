@@ -52,38 +52,14 @@
 
 
     </div>
+    {{!--
     <script src="//yastatic.net/jquery/2.1.3/jquery.min.js"></script>
     <script>
       if (!window.jQuery) {
         document.write('<script src="{{assets}}/js/lib/jquery2.1.3.min.js"><\/script>');
         }
     </script>
+     --}}
     <script src="{{assets}}/js/build/scripts.js"></script>
-
-    {{#unless onProduction}}
-      {{#if PixLayout}}
-      <!--
-      =========================
-          ТОЛЬКО ДЛЯ ВЕРСТКИ
-      =========================
-      -->
-      <!-- PixLayout -->
-      <script src="{{assets}}/_assets/jquery.pixlayout.0.9.7.js"></script>
-      <script>
-          $(function(){
-            $.pixlayout({
-              src: "{{assets}}/_assets/{{ PLimage }}.png", // путь к картинке
-              opacity: {{ PLopacity }},
-              top: {{ PLtop }},
-              left: {{ PLleft }},{{#if PLcenter}}
-              center: true, {{/if}}
-              clip:true,
-              show: true,
-            })
-          });
-      </script>
-      <!-- / PixLayout -->
-      {{/if}}
-    {{/unless}}
     </body>
 </html>

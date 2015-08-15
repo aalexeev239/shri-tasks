@@ -9,7 +9,7 @@
     "city": "Kos",
     "title":"British Airways",
     "airship": "Airbus A330-300",
-    "airship_shortand": "A330",
+    "airship_short": "A330",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-BA.png",
     "isCommented": true
   },
@@ -23,7 +23,7 @@
     "city": "Delhi",
     "title":"Air Canada",
     "airship": "Airbus A330-300",
-    "airship_shortand": "A330",
+    "airship_short": "A330",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-AC.png"
   },
   {
@@ -36,7 +36,7 @@
     "city": "Glasgow",
     "title": "British Airways",
     "airship": "Boeing 717-200",
-    "airship_shortand": "B717",
+    "airship_short": "B717",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-BA.png"
   },
   {
@@ -49,7 +49,7 @@
     "city": "Glasgow",
     "title": "Iberia",
     "airship": "Boeing 757-200",
-    "airship_shortand": "B757",
+    "airship_short": "B757",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-IB.png"
   },
   {
@@ -62,7 +62,7 @@
     "city": "Mumbai",
     "title": "Jet Airways",
     "airship": "Boeing 757-200",
-    "airship_shortand": "B757",
+    "airship_short": "B757",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-9W.png"
   },
   {
@@ -75,7 +75,7 @@
     "city": "Delhi",
     "title":"Air India",
     "airship": "Airbus A330-300",
-    "airship_shortand": "A330",
+    "airship_short": "A330",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-AI.png"
   },
   {
@@ -87,9 +87,9 @@
     "date": "08-Aug-15",
     "from": "GLA",
     "city": "Glasgow",
-    "title":"Very loooooooooooooooong British Company",
+    "title":"Very looooooooooooong British Company",
     "airship": "Airbus A330-300",
-    "airship_shortand": "A330",
+    "airship_short": "A330",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-BA.png",
     "isCommented": true
   },
@@ -103,7 +103,7 @@
     "city": "Taipei",
     "title":"EVA Air",
     "airship": "Airbus A330-300",
-    "airship_shortand": "A330",
+    "airship_short": "A330",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-BR.png"
   },
   {
@@ -116,7 +116,7 @@
     "city": "Paris",
     "title":"American Airlines",
     "airship": "Airbus A320",
-    "airship_shortand": "A320",
+    "airship_short": "A320",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-AA.png"
   },
   {
@@ -129,7 +129,7 @@
     "city": "Paris",
     "title":"British Airways",
     "airship": "Airbus A320",
-    "airship_shortand": "A320",
+    "airship_short": "A320",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-BA.png"
   },
   {
@@ -142,7 +142,7 @@
     "city": "Kos",
     "title":"British Airways",
     "airship": "Airbus A320",
-    "airship_shortand": "A320",
+    "airship_short": "A320",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-BA.png",
     "isCommented": true
   },
@@ -157,7 +157,7 @@
     "city": "Johannesburg",
     "title": "American Airlines",
     "airship": "Airbus A320",
-    "airship_shortand": "A320",
+    "airship_short": "A320",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-AA.png"
   },
   {
@@ -170,7 +170,7 @@
     "city": "Johannesburg",
     "title": "Finnair",
     "airship": "Airbus A320",
-    "airship_shortand": "A320",
+    "airship_short": "A320",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-AY.png"
   },
   {
@@ -183,7 +183,7 @@
     "city": "Johannesburg",
     "title": "British Airways",
     "airship": "Boeing 717-200",
-    "airship_shortand": "B717",
+    "airship_short": "B717",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-BA.png"
   },
   {
@@ -196,7 +196,7 @@
     "city": "Johannesburg",
     "title": "Iberia",
     "airship": "Boeing 717-200",
-    "airship_shortand": "B717",
+    "airship_short": "B717",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-IB.png",
     "isCommented": true
   },
@@ -210,7 +210,7 @@
     "city": "Delhi",
     "title": "Jet Airways",
     "airship": "Boeing 717-200",
-    "airship_shortand": "B717",
+    "airship_short": "B717",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-9W.png"
   },
   {
@@ -223,7 +223,7 @@
     "city": "Delhi",
     "title": "Air Canada",
     "airship": "Boeing 717-200",
-    "airship_shortand": "B717",
+    "airship_short": "B717",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-AC.png"
   },
   {
@@ -236,7 +236,7 @@
     "city": "Mumbai",
     "title": "Air Canada",
     "airship": "Boeing 757-200",
-    "airship_shortand": "B717",
+    "airship_short": "B717",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-AC.png"
   },
   {
@@ -249,7 +249,7 @@
     "city": "Mumbai",
     "title": "Virgin Atlantic",
     "airship": "Boeing 757-200",
-    "airship_shortand": "B717",
+    "airship_short": "B717",
     "src":"/file_source/Heathrow/Images/regular/icons/tailfin-VS.png"
   }
 ]

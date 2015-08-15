@@ -1,11 +1,7 @@
 // Андрей Алексеев [AA]
 // alexeev.andrey.a@gmail.com
+document.addEventListener("DOMContentLoaded", function(event) {
 
-$(document).ready(function() {
-
-  document.querySelector('#js-table') && table.init();
-
-
+  document.querySelector('#js-flight') && flightTable.init();
 
 });
-// END doc.ready
