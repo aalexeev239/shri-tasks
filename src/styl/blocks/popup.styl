@@ -1,0 +1,76 @@
+html.popup-shown
+  overflow hidden
+
+  .popup-wrap
+    display block
+
+
+.popup-wrap
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  z-index $z_popup
+  background-color: rgba(0, 62, 244, 0.6);
+  text-align center
+  padding 10px
+  overflow auto
+  overflow-scrolling touch
+  display none
+
+
+  &:after
+    content ''
+    display inline-block
+    vertical-align middle
+    height 100%
+    margin-left  -.05em
+
+
+.popup
+  position relative
+  display inline-block
+  vertical-align middle
+  width 600px
+  background #fff
+  padding 30px
+  transform translate3d(0,0,0)
+
+  &__title
+    @extends .h2
+    margin 0 0 20px
+
+
+
+  &__close
+    @extends .text-hide
+    position absolute
+    top 5px
+    right 5px
+    width 30px
+    height 30px
+    opacity .6
+    cursor pointer
+
+    &:hover
+      opacity 1
+
+    &:active
+      opacity .3
+
+    &:before
+    &:after
+      content ''
+      position absolute
+      left 5px
+      top 15px
+      width 20px
+      height 1px
+      background #000
+
+    &:before
+      transform rotate(45deg)
+
+    &:after
+      transform rotate(-45deg)
