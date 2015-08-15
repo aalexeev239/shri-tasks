@@ -1,0 +1,9 @@
+node_modules
+.ftppass
+public
+Icon
+Iconr
+Icon^M
+
+*.sublime-project
+*.sublime-workspace

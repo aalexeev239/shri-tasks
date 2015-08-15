@@ -1,0 +1,184 @@
+---
+title: "Шаблон страницы"
+PixLayout: false
+PLimage: "screenshot.png"
+PLopacity: 0.6
+PLcenter: false
+PLtop: 0
+PLleft: 0
+---
+<div class="container">
+  <p>1) В реализации API бага: исходный скрипт содежит ошибку в <b>Math.round(Math.random() * 1000</b> – возвращает <b>NaN</b>, поэтому ответы на запросы возвращаются в том же "правильном" порядке, что были посланы. Тем не менее, это малозначительно.</p>
+  <p>2) Ошибка исходного кода была в попытке задать <b>responses[request]</b> — на момент вызова <b>callback</b>переменная <b>request</b> всегда имеет значение <b>/populations</b>. Можно переработать <b>callback</b> так, чтобы записывались все результаты — передавая правильное значение в <b>responses</b>.
+  </p>
+</div>
+<script>
+  var population = (function() {
+      'use strict';
+      /**
+       * Реализация API, не изменяйте ее
+       * @param {string} url
+       * @param {function} callback
+       */
+      function getData(url, callback) {
+          var RESPONSES = {
+              '/countries': [
+                  {name: 'Cameroon', continent: 'Africa'},
+                  {name :'Fiji Islands', continent: 'Oceania'},
+                  {name: 'Guatemala', continent: 'North America'},
+                  {name: 'Japan', continent: 'Asia'},
+                  {name: 'Yugoslavia', continent: 'Europe'},
+                  {name: 'Tanzania', continent: 'Africa'}
+              ],
+              '/cities': [
+                  {name: 'Bamenda', country: 'Cameroon'},
+                  {name: 'Suva', country: 'Fiji Islands'},
+                  {name: 'Quetzaltenango', country: 'Guatemala'},
+                  {name: 'Osaka', country: 'Japan'},
+                  {name: 'Subotica', country: 'Yugoslavia'},
+                  {name: 'Zanzibar', country: 'Tanzania'},
+              ],
+              '/populations': [
+                  {count: 138000, name: 'Bamenda'},
+                  {count: 77366, name: 'Suva'},
+                  {count: 90801, name: 'Quetzaltenango'},
+                  {count: 2595674, name: 'Osaka'},
+                  {count: 100386, name: 'Subotica'},
+                  {count: 157634, name: 'Zanzibar'}
+              ]
+
+          };
+
+          setTimeout(function () {
+              var result = RESPONSES[url];
+              if (!result) {
+                  return callback('Unknown url');
+              }
+              callback(null, result);
+          }, Math.round(Math.random * 1000));
+      }
+
+
+
+
+      var population = {
+          init: function(){
+              /**
+               * Ваши изменения ниже
+               */
+              var requests = ['/countries', '/cities', '/populations'];
+              var responses = {};
+              var callback = function (request) {
+
+                  return function(error, result) {
+
+                      if (error) {
+                          console.log("Stopped calculation with error: "+error);
+                          return false;
+                      }
+
+                      responses[request] = result;
+
+                      checkResult();
+                  }
+              };
+
+
+              // send requests
+              for (var i = 0; i < 3; i++) {
+                  var request = requests[i];
+
+                  getData(request, callback(request));
+              }
+
+              // check if all responses are collected
+              var checkResult = function () {
+                  var counter = 0;
+                  for (var K in responses) {
+                      if (responses.hasOwnProperty(K)) {
+                          counter++;
+                      }
+                  }
+
+                  if (counter == 3) {
+                      calc();
+                  }
+              }
+
+              // calc the result
+              function calc() {
+                  var c = [], cc = [], p = 0, i, j;
+                  var search = prompt('Please type country or city name.\nLeave the field blank, to show population in Africa');
+
+                  // default – Africa population
+                  if (!search.length) {
+
+                      for (i = responses['/countries'].length - 1; i>=0; i--) {
+                          if (responses['/countries'][i].continent === 'Africa') {
+                              c.push(responses['/countries'][i].name);
+                          }
+                      }
+
+                      for (i = responses['/cities'].length - 1; i>=0; i--) {
+                          for (j = c.length - 1; j>=0; j--) {
+                              if (responses['/cities'][i].country === c[j]) {
+                                  cc.push(responses['/cities'][i].name);
+                              }
+                          }
+                      }
+
+                      for (i = responses['/populations'].length - 1; i>=0; i--) {
+                          for (j = cc.length - 1; j>=0; j--) {
+                              if (responses['/populations'][i].name === cc[j]) {
+                                  p += responses['/populations'][i].count;
+                              }
+                          }
+                      }
+
+                  console.log('Total population in African cities: ' + p);
+
+                  // country or city was prompted
+                  } else {
+
+                      // check countries
+                      for (i = responses['/cities'].length - 1; i>=0; i--) {
+                          if (responses['/cities'][i].country === search) {
+                              cc.push(responses['/cities'][i].name);
+                          }
+                      }
+
+                      // country was chosen, calc city population
+                      if (cc.length) {
+                          for (i = responses['/populations'].length - 1; i>=0; i--) {
+                              for (j = cc.length - 1; j>=0; j--) {
+                                  if (responses['/populations'][i].name === cc[j]) {
+                                      p += responses['/populations'][i].count;
+                                  }
+                              }
+                          }
+
+                          console.log('Total population in '+search+' country: ' + p);
+                      // no country found, check city
+                      } else {
+                          for (i = responses['/populations'].length - 1; i>=0; i--) {
+                              if (responses['/populations'][i].name === search) {
+                                  p += responses['/populations'][i].count;
+                              }
+                          }
+
+                          if (p > 0) {
+                              console.log('Total population in '+search+' city: ' + p);
+                          } else {
+                              console.log('Error: no city or country found');
+                          }
+                      }
+                  }
+              }
+          }
+      };
+
+      return population;
+  }());
+
+  population.init();
+</script>

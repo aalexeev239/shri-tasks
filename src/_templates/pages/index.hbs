@@ -1,0 +1,78 @@
+---
+title: "Главная"
+PixLayout: false
+PLimage: "screenshot.png"
+PLopacity: 0.6
+PLcenter: false
+PLtop: 0
+PLleft: 0
+---
+
+<div class="container">
+  <table class="flights">
+    <col width="40">
+    <col>
+    <col>
+    <col>
+    <col>
+    <col>
+    <col>
+    <tbody>
+      {{#each flights}}
+        <tr>
+          <td>
+            {{#is type "ARRIVAL"}}
+              <span class="flights__type" title="ARRIVAL">↓</span>
+            {{/is}}
+            {{#is type "DEPARTURE"}}
+              <span class="flights__type" title="DEPARTURE">↑</span>
+            {{/is}}
+          </td>
+          <td>{{id}}</td>
+          <td>
+            <a href="#" class="flights__company-logo" title="{{title}} flights">
+              <img src="http://www.heathrow.com/{{src}}" alt="{{title}} flights" width="40" height="40">
+            </a>
+            <span class="flights__title">{{title}}</span>
+          </td>
+          <td>{{airship}}</td>
+          <td>
+            {{#is type "ARRIVAL"}}
+              from {{from}}, {{city}}
+            {{/is}}
+            {{#is type "DEPARTURE"}}
+              to {{from}}, {{city}}
+            {{/is}}
+          </td>
+          <td>
+            <span class="flights__state">{{state}}{{#isnt at "undefined"}} at {{at}}{{/isnt}}</span>
+          </td>
+          <td>
+            {{#if isCommented}}
+              <small class="text-muted">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
+            {{else}}
+              &nbsp;
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+{{#unless onProduction}}
+  <!-- tableOfPages -->
+  <script src="js/lib/tableOfPages.js"></script>
+  <script>
+    if (typeof tableOfPages !== "undefined") {
+      tableOfPages.init({
+        {{#each pages}}
+          {{#isnt basename "_templ"}}
+            "{{ basename }}":"{{ data.title }}",
+          {{/isnt}}
+        {{/each}}
+      });
+    }
+  </script>
+  <!-- /tableOfPages -->
+{{/unless}}
