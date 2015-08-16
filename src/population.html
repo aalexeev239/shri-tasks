@@ -9,22 +9,19 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=1260">
     <title>Популяции</title>
-
-
     <link href="./css/styles.min.css" rel="stylesheet" media="screen">
     <script src="./js/lib/grunticon.loader.js"></script>
     <script>
         document.documentElement.className =
             document.documentElement.className.replace("no-js", "js");
         grunticon(["css/grunticon-icons.data.svg.css", "css/grunticon-icons.data.png.css", "css/grunticon-icons.fallback.css"], grunticon.svgLoadedCallback);
-
         // ie10 detect
         if (Function('/*@cc_on return document.documentMode===10@*/')()){
             document.documentElement.className+=' ie10';
         }
     </script>
     <noscript>
-        <link href="./css/grunticon-icons.fallback.css" rel="stylesheet">
+      <link href="./css/grunticon-icons.fallback.css" rel="stylesheet">
     </noscript>
     <!--[if lte IE 9]>
     <script src="./js/lib/html5shiv.min.js"></script>
@@ -32,22 +29,24 @@
     <!--[if lt IE 9]>
     <script src="./js/lib/es5-shim.min.js"></script>
     <![endif]-->
-    
-
   </head>
   <body>
     <div class="page-wrapper">
-
-
-
       <main class="page-content">
-        
-<div class="container">
-  <p>1) В реализации API бага: исходный скрипт содежит ошибку в <b>Math.round(Math.random() * 1000</b> – возвращает <b>NaN</b>, поэтому ответы на запросы возвращаются в том же "правильном" порядке, что были посланы. Тем не менее, это малозначительно.</p>
-  <p>2) Ошибка исходного кода была в попытке задать <b>responses[request]</b> — на момент вызова <b>callback</b>переменная <b>request</b> всегда имеет значение <b>/populations</b>. Можно переработать <b>callback</b> так, чтобы записывались все результаты — передавая правильное значение в <b>responses</b>.
-  </p>
-</div>
-<script>
+        <div class="container">
+          <p>1) В реализации API бага: исходный скрипт содежит ошибку в
+            <b>Math.round(Math.random() * 1000</b> – возвращает
+            <b>NaN</b>, поэтому ответы на запросы возвращаются в том же "правильном" порядке, что были посланы. Тем не менее, это малозначительно.</p>
+          <p>2) Ошибка исходного кода была в попытке задать
+            <b>responses[request]</b> — на момент вызова
+            <b>callback</b>переменная
+            <b>request</b> всегда имеет значение
+            <b>/populations</b>. Можно переработать
+            <b>callback</b> так, чтобы записывались все результаты — передавая правильное значение в
+            <b>responses</b>.
+          </p>
+        </div>
+        <script>
   var population = (function() {
       'use strict';
       /**
@@ -81,9 +80,7 @@
                   {count: 100386, name: 'Subotica'},
                   {count: 157634, name: 'Zanzibar'}
               ]
-
           };
-
           setTimeout(function () {
               var result = RESPONSES[url];
               if (!result) {
@@ -92,33 +89,23 @@
               callback(null, result);
           }, Math.round(Math.random * 1000));
       }
-
-
-
       var requests = ['/countries', '/cities', '/populations'];
       var responses = {};
       var callback = function (request) {
-
         return function(error, result) {
-
           if (error) {
             console.log("Stopped calculation with error: "+error);
             return false;
           }
-
           responses[request] = result;
-
           population.checkResult();
         };
       };
-
       var population = {
-
         init: function(){
             // send requests
             for (var i = 0; i < 3; i++) {
                 var request = requests[i];
-
               getData(request, callback(request));
             }
         },
@@ -130,7 +117,6 @@
               counter++;
             }
           }
-
           if (counter == 3) {
             this.calc();
           }
@@ -139,16 +125,13 @@
         calc: function () {
           var c = [], cc = [], p = 0, i, j;
           var search = prompt('Please type country or city name.\nLeave the field blank, to show population in Africa');
-
           // default – Africa population
           if (!search.length) {
-
             for (i = responses['/countries'].length - 1; i>=0; i--) {
               if (responses['/countries'][i].continent === 'Africa') {
                 c.push(responses['/countries'][i].name);
               }
             }
-
             for (i = responses['/cities'].length - 1; i>=0; i--) {
               for (j = c.length - 1; j>=0; j--) {
                 if (responses['/cities'][i].country === c[j]) {
@@ -156,7 +139,6 @@
                 }
               }
             }
-
             for (i = responses['/populations'].length - 1; i>=0; i--) {
               for (j = cc.length - 1; j>=0; j--) {
                 if (responses['/populations'][i].name === cc[j]) {
@@ -164,19 +146,15 @@
                 }
               }
             }
-
             console.log('Total population in African cities: ' + p);
-
           // country or city was prompted
           } else {
-
             // check countries
             for (i = responses['/cities'].length - 1; i>=0; i--) {
               if (responses['/cities'][i].country === search) {
                 cc.push(responses['/cities'][i].name);
               }
             }
-
             // country was chosen, calc city population
             if (cc.length) {
               for (i = responses['/populations'].length - 1; i>=0; i--) {
@@ -187,7 +165,6 @@
                 }
               }
               console.log('Total population in '+search+' country: ' + p);
-
             // no country found, check city
             } else {
               for (i = responses['/populations'].length - 1; i>=0; i--) {
@@ -195,7 +172,6 @@
                   p += responses['/populations'][i].count;
                 }
               }
-
               if (p > 0) {
                 console.log('Total population in '+search+' city: ' + p);
               } else {
@@ -205,19 +181,12 @@
           }
         }
       };
-
       return population;
   }());
-
   population.init();
 </script>
       </main>
-
-
-
-
     </div>
-    
     <script src="./js/build/scripts.js"></script>
-    </body>
+  </body>
 </html>

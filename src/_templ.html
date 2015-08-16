@@ -9,22 +9,19 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=1260">
     <title>Шаблон страницы</title>
-
-
     <link href="./css/styles.min.css" rel="stylesheet" media="screen">
     <script src="./js/lib/grunticon.loader.js"></script>
     <script>
-        document.documentElement.className =
-            document.documentElement.className.replace("no-js", "js");
-        grunticon(["css/grunticon-icons.data.svg.css", "css/grunticon-icons.data.png.css", "css/grunticon-icons.fallback.css"], grunticon.svgLoadedCallback);
-
-        // ie10 detect
-        if (Function('/*@cc_on return document.documentMode===10@*/')()){
-            document.documentElement.className+=' ie10';
-        }
+      document.documentElement.className =
+        document.documentElement.className.replace("no-js", "js");
+      grunticon(["css/grunticon-icons.data.svg.css", "css/grunticon-icons.data.png.css", "css/grunticon-icons.fallback.css"], grunticon.svgLoadedCallback);
+      // ie10 detect
+      if (Function('/*@cc_on return document.documentMode===10@*/')()) {
+        document.documentElement.className += ' ie10';
+      }
     </script>
     <noscript>
-        <link href="./css/grunticon-icons.fallback.css" rel="stylesheet">
+      <link href="./css/grunticon-icons.fallback.css" rel="stylesheet">
     </noscript>
     <!--[if lte IE 9]>
     <script src="./js/lib/html5shiv.min.js"></script>
@@ -32,25 +29,13 @@
     <!--[if lt IE 9]>
     <script src="./js/lib/es5-shim.min.js"></script>
     <![endif]-->
-    
-
   </head>
   <body>
     <div class="page-wrapper">
-
-
-
       <main class="page-content">
-        
-
-Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Там взгляд они до агенство напоивший имеет, буквенных семь приставка сих если что бросил буквоград заманивший безорфографичный пустился, свой сбить.
+        Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Там взгляд они до агенство напоивший имеет, буквенных семь приставка сих если что бросил буквоград заманивший безорфографичный пустился, свой сбить.
       </main>
-
-
-
-
     </div>
-    
     <script src="./js/build/scripts.js"></script>
-    </body>
+  </body>
 </html>

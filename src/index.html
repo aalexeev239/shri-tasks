@@ -9,22 +9,19 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=1260">
     <title>Главная</title>
-
-
     <link href="./css/styles.min.css" rel="stylesheet" media="screen">
     <script src="./js/lib/grunticon.loader.js"></script>
     <script>
-        document.documentElement.className =
-            document.documentElement.className.replace("no-js", "js");
-        grunticon(["css/grunticon-icons.data.svg.css", "css/grunticon-icons.data.png.css", "css/grunticon-icons.fallback.css"], grunticon.svgLoadedCallback);
-
-        // ie10 detect
-        if (Function('/*@cc_on return document.documentMode===10@*/')()){
-            document.documentElement.className+=' ie10';
-        }
+      document.documentElement.className =
+        document.documentElement.className.replace("no-js", "js");
+      grunticon(["css/grunticon-icons.data.svg.css", "css/grunticon-icons.data.png.css", "css/grunticon-icons.fallback.css"], grunticon.svgLoadedCallback);
+      // ie10 detect
+      if (Function('/*@cc_on return document.documentMode===10@*/')()) {
+        document.documentElement.className += ' ie10';
+      }
     </script>
     <noscript>
-        <link href="./css/grunticon-icons.fallback.css" rel="stylesheet">
+      <link href="./css/grunticon-icons.fallback.css" rel="stylesheet">
     </noscript>
     <!--[if lte IE 9]>
     <script src="./js/lib/html5shiv.min.js"></script>
@@ -32,1033 +29,763 @@
     <!--[if lt IE 9]>
     <script src="./js/lib/es5-shim.min.js"></script>
     <![endif]-->
-    
-
   </head>
   <body>
     <div class="page-wrapper">
-
-
-
       <main class="page-content">
-        
-
-<div class="container">
-  <div class="flights flights--main">
-    <h1 class="flights__caption">Flights schedule</h1>
-    <input type="checkbox" name="flights-sort-a" id="flights-sort-a" class="flight-checkbox" value="flights-sort-a" checked>
-    <label for="flights-sort-a">Arrival</label>
-
-    <input type="checkbox" name="flights-sort-d" id="flights-sort-d" class="flight-checkbox" value="flights-sort-d" checked>
-    <label for="flights-sort-d">Departure</label>
-
-    <table class="flights__table" id="js-flight">
-      <thead>
-        <tr id="js-flight-head">
-          <th class="flights__head-cell">Type</th>
-          <th class="flights__head-cell">Flight</th>
-          <th class="flights__head-cell">Company</th>
-          <th class="flights__head-cell">Plane type</th>
-          <th class="flights__head-cell">Arrival / Destination</th>
-          <th class="flights__head-cell">State</th>
-          <th class="flights__head-cell">Time</th>
-          <th class="flights__head-cell">Comment</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-          <tr class="js-flight-row" data-type="ARRIVAL">
-            <td class="flights__cell flights__cell--type">
-              
-                <span class="flights__type" title="arrival">Arrival <i class="icon icon-arrow-up-right"></i></span>
-              
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              BA657
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="British Airways flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
-              </span>
-              <span class="flights__company">British Airways</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="KGS">
-              
-                from KGS, Kos
-              
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  On fly
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  19:24
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-              <span class="flights__comment"><a href="https://referat.yandex.ru/referats/" class="js-flight-external-link" target="blank">Далеко-далеко</a> за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="ARRIVAL">
-            <td class="flights__cell flights__cell--type">
-              
-                <span class="flights__type" title="arrival">Arrival <i class="icon icon-arrow-up-right"></i></span>
-              
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              AC6387
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Air Canada flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AC.png" alt="Air Canada flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Air Canada</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="DEL">
-              
-                from DEL, Delhi
-              
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Landed
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  18:57
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              BA1498
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="British Airways flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
-              </span>
-              <span class="flights__company">British Airways</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="GLA">
-              
-              
-                to GLA, Glasgow
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Departed
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  21:58
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              IB7536
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Iberia flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-IB.png" alt="Iberia flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Iberia</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="B757">Boeing 757-200</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="GLA">
-              
-              
-                to GLA, Glasgow
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Check-in
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  21:58
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              9W117
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Jet Airways flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-9W.png" alt="Jet Airways flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Jet Airways</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="B757">Boeing 757-200</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="BOM">
-              
-              
-                to BOM, Mumbai
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Departed
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  21:54
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="ARRIVAL">
-            <td class="flights__cell flights__cell--type">
-              
-                <span class="flights__type" title="arrival">Arrival <i class="icon icon-arrow-up-right"></i></span>
-              
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              AI111
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Air India flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AI.png" alt="Air India flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Air India</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="DEL">
-              
-                from DEL, Delhi
-              
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  On-time
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  18:57
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="ARRIVAL">
-            <td class="flights__cell flights__cell--type">
-              
-                <span class="flights__type" title="arrival">Arrival <i class="icon icon-arrow-up-right"></i></span>
-              
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              BA1495
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Very looooooooooooong British Company flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="Very looooooooooooong British Company flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Very looooooooooooong British Company</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="GLA">
-              
-                from GLA, Glasgow
-              
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                <span class="text-error">Delayed till 21:00</span>
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  <span class="text-muted">20:31</span>
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-              <span class="flights__comment"><a href="https://referat.yandex.ru/referats/" class="js-flight-external-link" target="blank">Далеко-далеко</a> за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="ARRIVAL">
-            <td class="flights__cell flights__cell--type">
-              
-                <span class="flights__type" title="arrival">Arrival <i class="icon icon-arrow-up-right"></i></span>
-              
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              BR067
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="EVA Air flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BR.png" alt="EVA Air flights" width="40" height="40">
-              </span>
-              <span class="flights__company">EVA Air</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A330">Airbus A330-300</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="TPE">
-              
-                from TPE, Taipei
-              
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  <span class="text-error">Cancelled</span>
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  10:30
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="ARRIVAL">
-            <td class="flights__cell flights__cell--type">
-              
-                <span class="flights__type" title="arrival">Arrival <i class="icon icon-arrow-up-right"></i></span>
-              
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              AA6517
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="American Airlines flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AA.png" alt="American Airlines flights" width="40" height="40">
-              </span>
-              <span class="flights__company">American Airlines</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A320">Airbus A320</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="ORY">
-              
-                from ORY, Paris
-              
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Landed
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  20:25
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="ARRIVAL">
-            <td class="flights__cell flights__cell--type">
-              
-                <span class="flights__type" title="arrival">Arrival <i class="icon icon-arrow-up-right"></i></span>
-              
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              BA337
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="British Airways flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
-              </span>
-              <span class="flights__company">British Airways</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A320">Airbus A320</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="ORY">
-              
-                from ORY, Paris
-              
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Landed
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  20:25
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="ARRIVAL">
-            <td class="flights__cell flights__cell--type">
-              
-                <span class="flights__type" title="arrival">Arrival <i class="icon icon-arrow-up-right"></i></span>
-              
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              BA9243
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="British Airways flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
-              </span>
-              <span class="flights__company">British Airways</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A320">Airbus A320</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="KGS">
-              
-                from KGS, Kos
-              
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Landed
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  19:35
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-              <span class="flights__comment"><a href="https://referat.yandex.ru/referats/" class="js-flight-external-link" target="blank">Далеко-далеко</a> за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              AA6445
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="American Airlines flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AA.png" alt="American Airlines flights" width="40" height="40">
-              </span>
-              <span class="flights__company">American Airlines</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A320">Airbus A320</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="JNB">
-              
-              
-                to JNB, Johannesburg
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                <span class="text-error">Delayed till 21:00</span>
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  <span class="text-muted">02:39</span>
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              AY5945
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Finnair flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AY.png" alt="Finnair flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Finnair</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="A320">Airbus A320</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="JNB">
-              
-              
-                to JNB, Johannesburg
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  On-time
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  02:39
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              BA055
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="British Airways flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
-              </span>
-              <span class="flights__company">British Airways</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="JNB">
-              
-              
-                to JNB, Johannesburg
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  On-time
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  02:39
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              IB4726
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Iberia flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-IB.png" alt="Iberia flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Iberia</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="JNB">
-              
-              
-                to JNB, Johannesburg
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  On-time
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  02:39
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-              <span class="flights__comment"><a href="https://referat.yandex.ru/referats/" class="js-flight-external-link" target="blank">Далеко-далеко</a> за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              9W121
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Jet Airways flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-9W.png" alt="Jet Airways flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Jet Airways</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="DEL">
-              
-              
-                to DEL, Delhi
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Boarding
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  02:39
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              AC6008
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Air Canada flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AC.png" alt="Air Canada flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Air Canada</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="B717">Boeing 717-200</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="DEL">
-              
-              
-                to DEL, Delhi
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Gate closed
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  20:20
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              AC6004
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Air Canada flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AC.png" alt="Air Canada flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Air Canada</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="B717">Boeing 757-200</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="BOM">
-              
-              
-                to BOM, Mumbai
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Gate opened
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  21:54
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-          <tr class="js-flight-row" data-type="DEPARTURE">
-            <td class="flights__cell flights__cell--type">
-              
-              
-                <span class="flights__type" title="departure">Departure <i class="icon icon-arrow-down-right"></i></span>
-              
-            </td>
-            <td class="flights__cell flights__cell--id">
-              VS8017
-            </td>
-            <td class="flights__cell flights__cell--company">
-              <span class="flights__company-logo" title="Virgin Atlantic flights">
-                <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-VS.png" alt="Virgin Atlantic flights" width="40" height="40">
-              </span>
-              <span class="flights__company">Virgin Atlantic</span>
-            </td>
-            <td class="flights__cell flights__cell--airship">
-              <span class="flights__airship" data-short="B717">Boeing 757-200</span>
-            </td>
-            <td class="flights__cell flights__cell--point">
-            <span class="flights__point" data-point="BOM">
-              
-              
-                to BOM, Mumbai
-              
-            </span>
-            </td>
-            <td class="flights__cell">
-              
-                
-                  Departed
-                
-              
-              </span>
-            </td>
-            <td class="flights__cell flights__cell--time">
-              
-                  21:54
-                
-              </td>
-            <td class="flights__cell flights__cell--comment">
-              
-                &nbsp;
-              
-            </td>
-          </tr>
-        
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="8" class="flights__cell flights__cell--footer">
-            <a href="##" class="flights__link-more">Show more...</a>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="8" class="flights__cell flights__cell--nothing">
-            Nothing to show. Please, select something in top filter.
-          </td>
-        </tr>
-      </tfoot>
-    </table>
-    <div class="flights__fixed" id="js-flight-fixed">
-      <span class="flights__head-cell">Type</span>
-      <span class="flights__head-cell">Flight</span>
-      <span class="flights__head-cell">Company</span>
-      <span class="flights__head-cell">Plane type</span>
-      <span class="flights__head-cell">Arrival / Destination</span>
-      <span class="flights__head-cell">State</span>
-      <span class="flights__head-cell">Time</span>
-      <span class="flights__head-cell">Comment</span>
-    </div>
-  </div>
-</div>
-
-<div class="popup-wrap">
-  <div class="popup" id="js-flight-popup">
-    <p class="popup__title">Flight info</p>
-    <span class="popup__close" id="js-flight-close" title="close">close</span>
-    <div class="flights flights--popup">
-      <table class="flights__table">
-        <tr>
-          <th>Type:</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Flight:</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Company:</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Plane type:</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Arrival / Destination:</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th>State:</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Time:</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Comment:</th>
-          <td></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-
-  <!-- tableOfPages -->
-  <script src="js/lib/tableOfPages.js"></script>
-  <script>
-    if (typeof tableOfPages !== "undefined") {
-      tableOfPages.init({
-        
-          
-        
-          
-            "index":"Главная",
-          
-        
-          
-            "player":"Плеер",
-          
-        
-          
-            "population":"Популяции",
-          
-        
-      });
-    }
-  </script>
-  <!-- /tableOfPages -->
-
+        <div class="container">
+          <div class="flights flights--main">
+            <h1 class="flights__caption">Flights schedule</h1>
+            <input type="checkbox" name="flights-sort-a" id="flights-sort-a" class="flight-checkbox" value="flights-sort-a" checked>
+            <label for="flights-sort-a">Arrival</label>
+            <input type="checkbox" name="flights-sort-d" id="flights-sort-d" class="flight-checkbox" value="flights-sort-d" checked>
+            <label for="flights-sort-d">Departure</label>
+            <table class="flights__table" id="js-flight">
+              <thead>
+                <tr id="js-flight-head">
+                  <th class="flights__head-cell">Type</th>
+                  <th class="flights__head-cell">Flight</th>
+                  <th class="flights__head-cell">Company</th>
+                  <th class="flights__head-cell">Plane type</th>
+                  <th class="flights__head-cell">Arrival / Destination</th>
+                  <th class="flights__head-cell">State</th>
+                  <th class="flights__head-cell">Time</th>
+                  <th class="flights__head-cell">Comment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="js-flight-row" data-type="ARRIVAL">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="arrival">Arrival
+                      <i class="icon icon-arrow-up-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    BA657
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="British Airways flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">British Airways</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A330">Airbus A330-300</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="KGS">
+                      from KGS, Kos
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    On fly
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    19:24
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    <span class="flights__comment">
+                      <a href="https://referat.yandex.ru/referats/" class="js-flight-external-link" target="blank">Далеко-далеко</a> за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="ARRIVAL">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="arrival">Arrival
+                      <i class="icon icon-arrow-up-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    AC6387
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Air Canada flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AC.png" alt="Air Canada flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Air Canada</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A330">Airbus A330-300</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="DEL">
+                      from DEL, Delhi
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Landed
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    18:57
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    BA1498
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="British Airways flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">British Airways</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="B717">Boeing 717-200</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="GLA">
+                      to GLA, Glasgow
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Departed
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    21:58
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    IB7536
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Iberia flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-IB.png" alt="Iberia flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Iberia</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="B757">Boeing 757-200</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="GLA">
+                      to GLA, Glasgow
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Check-in
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    21:58
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    9W117
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Jet Airways flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-9W.png" alt="Jet Airways flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Jet Airways</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="B757">Boeing 757-200</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="BOM">
+                      to BOM, Mumbai
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Departed
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    21:54
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="ARRIVAL">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="arrival">Arrival
+                      <i class="icon icon-arrow-up-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    AI111
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Air India flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AI.png" alt="Air India flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Air India</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A330">Airbus A330-300</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="DEL">
+                      from DEL, Delhi
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    On-time
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    18:57
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="ARRIVAL">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="arrival">Arrival
+                      <i class="icon icon-arrow-up-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    BA1495
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Very looooooooooooong British Company flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="Very looooooooooooong British Company flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Very looooooooooooong British Company</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A330">Airbus A330-300</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="GLA">
+                      from GLA, Glasgow
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    <span class="text-error">Delayed till 21:00</span>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    <span class="text-muted">20:31</span>
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    <span class="flights__comment">
+                      <a href="https://referat.yandex.ru/referats/" class="js-flight-external-link" target="blank">Далеко-далеко</a> за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="ARRIVAL">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="arrival">Arrival
+                      <i class="icon icon-arrow-up-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    BR067
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="EVA Air flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BR.png" alt="EVA Air flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">EVA Air</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A330">Airbus A330-300</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="TPE">
+                      from TPE, Taipei
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    <span class="text-error">Cancelled</span>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    10:30
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="ARRIVAL">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="arrival">Arrival
+                      <i class="icon icon-arrow-up-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    AA6517
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="American Airlines flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AA.png" alt="American Airlines flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">American Airlines</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A320">Airbus A320</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="ORY">
+                      from ORY, Paris
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Landed
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    20:25
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="ARRIVAL">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="arrival">Arrival
+                      <i class="icon icon-arrow-up-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    BA337
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="British Airways flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">British Airways</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A320">Airbus A320</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="ORY">
+                      from ORY, Paris
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Landed
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    20:25
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="ARRIVAL">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="arrival">Arrival
+                      <i class="icon icon-arrow-up-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    BA9243
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="British Airways flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">British Airways</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A320">Airbus A320</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="KGS">
+                      from KGS, Kos
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Landed
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    19:35
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    <span class="flights__comment">
+                      <a href="https://referat.yandex.ru/referats/" class="js-flight-external-link" target="blank">Далеко-далеко</a> за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    AA6445
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="American Airlines flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AA.png" alt="American Airlines flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">American Airlines</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A320">Airbus A320</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="JNB">
+                      to JNB, Johannesburg
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    <span class="text-error">Delayed till 21:00</span>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    <span class="text-muted">02:39</span>
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    AY5945
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Finnair flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AY.png" alt="Finnair flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Finnair</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="A320">Airbus A320</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="JNB">
+                      to JNB, Johannesburg
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    On-time
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    02:39
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    BA055
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="British Airways flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-BA.png" alt="British Airways flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">British Airways</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="B717">Boeing 717-200</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="JNB">
+                      to JNB, Johannesburg
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    On-time
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    02:39
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    IB4726
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Iberia flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-IB.png" alt="Iberia flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Iberia</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="B717">Boeing 717-200</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="JNB">
+                      to JNB, Johannesburg
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    On-time
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    02:39
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    <span class="flights__comment">
+                      <a href="https://referat.yandex.ru/referats/" class="js-flight-external-link" target="blank">Далеко-далеко</a> за словесными горами в стране, гласных и согласных живут рыбные тексты.</small>
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    9W121
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Jet Airways flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-9W.png" alt="Jet Airways flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Jet Airways</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="B717">Boeing 717-200</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="DEL">
+                      to DEL, Delhi
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Boarding
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    02:39
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    AC6008
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Air Canada flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AC.png" alt="Air Canada flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Air Canada</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="B717">Boeing 717-200</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="DEL">
+                      to DEL, Delhi
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Gate closed
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    20:20
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    AC6004
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Air Canada flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-AC.png" alt="Air Canada flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Air Canada</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="B717">Boeing 757-200</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="BOM">
+                      to BOM, Mumbai
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Gate opened
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    21:54
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr class="js-flight-row" data-type="DEPARTURE">
+                  <td class="flights__cell flights__cell--type">
+                    <span class="flights__type" title="departure">Departure
+                      <i class="icon icon-arrow-down-right"></i>
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--id">
+                    VS8017
+                  </td>
+                  <td class="flights__cell flights__cell--company">
+                    <span class="flights__company-logo" title="Virgin Atlantic flights">
+                      <img src="http://www.heathrow.com//file_source/Heathrow/Images/regular/icons/tailfin-VS.png" alt="Virgin Atlantic flights" width="40" height="40">
+                    </span>
+                    <span class="flights__company">Virgin Atlantic</span>
+                  </td>
+                  <td class="flights__cell flights__cell--airship">
+                    <span class="flights__airship" data-short="B717">Boeing 757-200</span>
+                  </td>
+                  <td class="flights__cell flights__cell--point">
+                    <span class="flights__point" data-point="BOM">
+                      to BOM, Mumbai
+                    </span>
+                  </td>
+                  <td class="flights__cell">
+                    Departed
+                    </span>
+                  </td>
+                  <td class="flights__cell flights__cell--time">
+                    21:54
+                  </td>
+                  <td class="flights__cell flights__cell--comment">
+                    &nbsp;
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="8" class="flights__cell flights__cell--footer">
+                    <a href="##" class="flights__link-more">Show more...</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="8" class="flights__cell flights__cell--nothing">
+                    Nothing to show. Please, select something in top filter.
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+            <div class="flights__fixed" id="js-flight-fixed">
+              <span class="flights__head-cell">Type</span>
+              <span class="flights__head-cell">Flight</span>
+              <span class="flights__head-cell">Company</span>
+              <span class="flights__head-cell">Plane type</span>
+              <span class="flights__head-cell">Arrival / Destination</span>
+              <span class="flights__head-cell">State</span>
+              <span class="flights__head-cell">Time</span>
+              <span class="flights__head-cell">Comment</span>
+            </div>
+          </div>
+        </div>
+        <div class="popup-wrap">
+          <div class="popup" id="js-flight-popup">
+            <p class="popup__title">Flight info</p>
+            <span class="popup__close" id="js-flight-close" title="close">close</span>
+            <div class="flights flights--popup">
+              <table class="flights__table">
+                <tr>
+                  <th>Type:</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>Flight:</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>Company:</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>Plane type:</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>Arrival / Destination:</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>State:</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>Time:</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>Comment:</th>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- tableOfPages -->
+        <script src="js/lib/tableOfPages.js"></script>
+        <script>
+          if (typeof tableOfPages !== "undefined") {
+            tableOfPages.init({
+              "index": "Главная",
+              "player": "Плеер",
+              "population": "Популяции",
+            });
+          }
+        </script>
+        <!-- /tableOfPages -->
       </main>
-
-
-
-
     </div>
-    
     <script src="./js/build/scripts.js"></script>
-    </body>
+  </body>
 </html>

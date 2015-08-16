@@ -20,6 +20,7 @@
     "grunt-contrib-copy": "^0.8.0",
     "grunt-ftp-deploy": "^0.1.10",
     "grunt-grunticon": "^2.2.1",
+    "grunt-prettify": "^0.4.0",
     "grunt-svgmin": "^2.0.1",
     "gulp": "^3.8.11",
     "gulp-cached": "^1.1.0",

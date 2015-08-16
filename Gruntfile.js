@@ -6,6 +6,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-svgmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-ftp-deploy');
+  grunt.loadNpmTasks('grunt-prettify');
 
 
 
@@ -106,6 +107,19 @@ module.exports = function(grunt) {
       }
     },
 
+    prettify: {
+      options: {
+        config: '.htmlprettifyrc'
+      },
+      all: {
+        expand: true,
+        cwd: '<%= config.src %>',
+        ext: '.html',
+        src: ['*.html'],
+        dest: '<%= config.src %>/'
+      }
+    },
+
 
 
     copy: {
@@ -183,6 +197,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('m', [
+    'prettify',
     'clean:dist',
     'copy:dist',
     'ftp_m'
