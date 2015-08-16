@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lte IE 9 ]><html lang="ru" class="no-js lte-ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="ru" class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=1260">
+    <title>Шаблон страницы</title>
+
+
+    <link href="./css/styles.min.css" rel="stylesheet" media="screen">
+    <script src="./js/lib/grunticon.loader.js"></script>
+    <script>
+        document.documentElement.className =
+            document.documentElement.className.replace("no-js", "js");
+        grunticon(["css/grunticon-icons.data.svg.css", "css/grunticon-icons.data.png.css", "css/grunticon-icons.fallback.css"], grunticon.svgLoadedCallback);
+
+        // ie10 detect
+        if (Function('/*@cc_on return document.documentMode===10@*/')()){
+            document.documentElement.className+=' ie10';
+        }
+    </script>
+    <noscript>
+        <link href="./css/grunticon-icons.fallback.css" rel="stylesheet">
+    </noscript>
+    <!--[if lte IE 9]>
+    <script src="./js/lib/html5shiv.min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="./js/lib/es5-shim.min.js"></script>
+    <![endif]-->
+    
+
+  </head>
+  <body>
+    <div class="page-wrapper">
+
+
+
+      <main class="page-content">
+        
+
+<div class="player" id="js-player">
+  <div class="player__controls">
+    <a href="##" class="player__control" id="js-player-play">play</a>
+    <a href="##" class="player__control" id="js-player-stop">stop</a>
+  </div>
+
+</div>
+      </main>
+
+
+
+
+    </div>
+    
+    <script src="./js/build/scripts.js"></script>
+    </body>
+</html>

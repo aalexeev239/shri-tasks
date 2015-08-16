@@ -750,31 +750,6 @@ html {
   padding-left: 10px;
   padding-right: 10px;
 }
-.btn {
-  display: inline-block;
-  vertical-align: top;
-  border: 0;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 20px;
-  background: #000;
-  color: #fff;
-  text-align: center;
-  font-size: fz_base;
-  text-decoration: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: background 0.1s;
-}
-.btn:hover {
-  text-decoration: none;
-  background: #1a1a1a;
-}
-.btn:active,
-.btn:focus {
-  text-decoration: none;
-  background: #262626;
-}
 .flight-checkbox {
   position: absolute;
   opacity: 0;
@@ -789,6 +764,10 @@ html {
   font-size: 16px;
   line-height: 1.2;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .flight-checkbox + label:before {
   content: '';
@@ -817,18 +796,6 @@ html {
 .flight-checkbox:checked + label:after {
   opacity: 1;
 }
-.flight {
-  margin: 0 auto;
-}
-.flight th,
-.flight td {
-  border: 0;
-  padding: 10px 20px;
-  width: 200px;
-}
-.flight th {
-  text-align: right;
-}
 #flights-sort-a:not(:checked) ~ .flights__table tr[data-type="ARRIVAL"] {
   display: none;
 }
@@ -843,6 +810,10 @@ html {
 }
 .flights {
   position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 /*===========================================
   =                MAIN TABLE                 =
   ===========================================*/
@@ -930,9 +901,11 @@ html {
   text-align: center;
   background: #fff;
 }
-.flights__controls {
-  text-align: center;
-  margin: 20px 0;
+.flights__table {
+  -webkit-user-select: all;
+     -moz-user-select: all;
+      -ms-user-select: all;
+          user-select: all;
 }
 .flights__head-cell {
   display: table-cell;
@@ -1092,28 +1065,6 @@ html.popup-shown .popup-wrap {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
-}
-.radio {
-  position: relative;
-}
-.radio__inp {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-}
-.radio__ind:before {
-  content: '';
-  position: absolute;
-}
-.radio__ind:after {
-  content: '';
-  position: absolute;
-}
-.radio__inp:checked + .checkbox__ind:before {
-  position: absolute;
-}
-.radio__inp:checked + .checkbox__ind:after {
-  position: absolute;
 }
 @media (max-width: 999px) {
 
