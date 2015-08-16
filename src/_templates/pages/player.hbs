@@ -9,19 +9,19 @@ PLleft: 0
 ---
 <div class="container">
   <div class="player" id="js-player">
+    <canvas class="player__canvas" id="js-player-canvas"></canvas>
     <div class="player__controls">
-      <a href="##" class="player__control" id="js-player-play">play</a>
-      <a href="##" class="player__control" id="js-player-stop">stop</a>
+      <a href="##" class="player__control" id="js-player-play" title="play">play <i class="icon icon-play"></i></a>
+      <a href="##" class="player__control" id="js-player-stop" title="stop">stop <i class="icon icon-stop"></i></a>
     </div>
     <label class="player__upload" for="js-player-upload">
-      <input type="file" name="js-player-upload" id="js-player-upload" multiple>
+      <input type="file" name="js-player-upload" id="js-player-upload" accept="audio/*" multiple>
       <div class="player__dropzone" id="js-player-dropzone">
         <span class="player__dropzone-text">
           Добавьте файлы сюда, хорошо?
         </span>
       </div>
     </label>
-
     <ol class="player__list" id="js-player-list"></ol>
   </div>
 </div>

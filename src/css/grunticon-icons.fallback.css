@@ -18,3 +18,23 @@
   height: 19px;
 }
 
+
+.icon-play {
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url('../img/svg/png-grunticon/play.png');
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}
+
+
+.icon-stop {
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url('../img/svg/png-grunticon/stop.png');
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}
+

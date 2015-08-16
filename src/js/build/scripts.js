@@ -9,6 +9,7 @@ var flightTable = (function() {
       popupCells = [],
       popupClose,
       externalLinks = [],
+      scrollBarW = 0,
       startPos = 0;
 
   // #js-flight
@@ -30,6 +31,8 @@ var flightTable = (function() {
       popup = document.getElementById('js-flight-popup');
       popupClose = document.getElementById('js-flight-close');
       externalLinks = document.querySelectorAll('.js-flight-external-link');
+      scrollBarW = getScrollBarWidth();
+
 
       // setup popup cells
       popupRows = popup.querySelectorAll('tr');
@@ -121,10 +124,40 @@ var flightTable = (function() {
 
     showPopup: function() {
       document.documentElement.classList.add('popup-shown');
+      if (document.body.scrollHeight > document.body.clientHeight) {
+        document.body.style.paddingRight = scrollBarW+'px';
+      }
     },
     hidePopup: function() {
       document.documentElement.classList.remove('popup-shown');
+      document.body.style.paddingRight = 0;
     }
+  };
+
+  function getScrollBarWidth() {
+    var inner = document.createElement('p');
+    inner.style.width = "100%";
+    inner.style.height = "200px";
+
+    var outer = document.createElement('div');
+    outer.style.position = "absolute";
+    outer.style.top = "0px";
+    outer.style.left = "0px";
+    outer.style.visibility = "hidden";
+    outer.style.width = "200px";
+    outer.style.height = "150px";
+    outer.style.overflow = "hidden";
+    outer.appendChild (inner);
+
+    document.body.appendChild (outer);
+    var w1 = inner.offsetWidth;
+    outer.style.overflow = 'scroll';
+    var w2 = inner.offsetWidth;
+    if (w1 == w2) w2 = outer.clientWidth;
+
+    document.body.removeChild (outer);
+
+    return (w1 - w2);
   };
 
   return flightTable;
@@ -133,10 +166,19 @@ var flightTable = (function() {
 var player = (function() {
 
   var
+    wrap,
     context,
     buffer,
     source,
     destination,
+    analyser,
+    canvas,
+    canvasWidth,
+    canvasHeight,
+    canvasCtx,
+    drawVisual,
+    bufferLength,
+    dataArray,
     trackList,
     playBtn,
     stopBtn,
@@ -159,11 +201,18 @@ var player = (function() {
         return false;
       }
 
+      wrap = document.getElementById('js-player');
       trackList = document.getElementById('js-player-list');
       playBtn = document.getElementById('js-player-play');
       stopBtn = document.getElementById('js-player-stop');
       fileUpload = document.getElementById('js-player-upload');
       fileDropzone = document.getElementById('js-player-dropzone');
+      canvas = document.getElementById("js-player-canvas");
+      canvasCtx = canvas.getContext('2d');
+      canvasWidth = canvas.width;
+      canvasHeight = canvas.height;
+
+      wrap.classList.add('disabled');
 
       fileUpload.addEventListener('change', function(ev) {
         player.handleFiles(ev.target.files);
@@ -184,7 +233,15 @@ var player = (function() {
 
       playBtn.addEventListener('click', function(ev) {
         ev.preventDefault();
-        if (player.tracks.length) player.playSound(player.tracks[0]);
+        var cur = trackList.querySelector('.active');
+
+        if (cur) {
+          player.playSound(player.tracks[Array.prototype.indexOf.call(trackList.children, cur)])
+        } else {
+          if (player.tracks.length) player.playSound(player.tracks[0]);
+        }
+         return false;
+
       }, false);
 
       stopBtn.addEventListener('click', function(ev) {
@@ -230,6 +287,8 @@ var player = (function() {
         track.buffer = decodedData;
       });
 
+
+
       if (meta) {
         content = meta.title;
         if (meta.artist) content += ' - ' + meta.artist + ' ('+ name +')';
@@ -252,6 +311,8 @@ var player = (function() {
       li.addEventListener('click', function(e) {
         player.playSound(player.tracks[index]);
       });
+
+      wrap.classList.remove('disabled');
     },
     getMetadata: function(obj) {
       var res = { title: '', artist: ''},
@@ -288,12 +349,59 @@ var player = (function() {
 
       destination = context.destination;
 
-      source.connect(destination);
+      analyser = context.createAnalyser();
+      analyser.minDecibels = -90;
+      analyser.maxDecibels = -10;
+      analyser.smoothingTimeConstant = 0.85;
+      analyser.fftSize = 2048;
 
+
+      bufferLength = analyser.fftSize;
+      dataArray = new Uint8Array(bufferLength);
+
+      canvasCtx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+      this.canvasDraw();
+
+      source.connect(analyser);
+      analyser.connect(destination);
       source.start(0);
     },
     stop: function() {
       if (source) source.stop(0);
+    },
+    canvasDraw: function() {
+      drawVisual = requestAnimationFrame(player.canvasDraw);
+
+      analyser.getByteTimeDomainData(dataArray);
+
+      canvasCtx.fillStyle = 'rgb(250, 250, 250)';
+      canvasCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+      canvasCtx.lineWidth = 2;
+      canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+
+      canvasCtx.beginPath();
+
+      var sliceWidth = canvasWidth * 1.0 / bufferLength;
+      var x = 0;
+
+      for(var i = 0; i < bufferLength; i++) {
+
+        var v = dataArray[i] / 128.0;
+        var y = v * canvasHeight/2;
+
+        if(i === 0) {
+          canvasCtx.moveTo(x, y);
+        } else {
+          canvasCtx.lineTo(x, y);
+        }
+
+        x += sliceWidth;
+      }
+
+      canvasCtx.lineTo(canvas.width, canvas.height/2);
+      canvasCtx.stroke();
     }
   };
 

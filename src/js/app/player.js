@@ -1,10 +1,19 @@
 var player = (function() {
 
   var
+    wrap,
     context,
     buffer,
     source,
     destination,
+    analyser,
+    canvas,
+    canvasWidth,
+    canvasHeight,
+    canvasCtx,
+    drawVisual,
+    bufferLength,
+    dataArray,
     trackList,
     playBtn,
     stopBtn,
@@ -27,11 +36,18 @@ var player = (function() {
         return false;
       }
 
+      wrap = document.getElementById('js-player');
       trackList = document.getElementById('js-player-list');
       playBtn = document.getElementById('js-player-play');
       stopBtn = document.getElementById('js-player-stop');
       fileUpload = document.getElementById('js-player-upload');
       fileDropzone = document.getElementById('js-player-dropzone');
+      canvas = document.getElementById("js-player-canvas");
+      canvasCtx = canvas.getContext('2d');
+      canvasWidth = canvas.width;
+      canvasHeight = canvas.height;
+
+      wrap.classList.add('disabled');
 
       fileUpload.addEventListener('change', function(ev) {
         player.handleFiles(ev.target.files);
@@ -52,7 +68,15 @@ var player = (function() {
 
       playBtn.addEventListener('click', function(ev) {
         ev.preventDefault();
-        if (player.tracks.length) player.playSound(player.tracks[0]);
+        var cur = trackList.querySelector('.active');
+
+        if (cur) {
+          player.playSound(player.tracks[Array.prototype.indexOf.call(trackList.children, cur)])
+        } else {
+          if (player.tracks.length) player.playSound(player.tracks[0]);
+        }
+         return false;
+
       }, false);
 
       stopBtn.addEventListener('click', function(ev) {
@@ -98,6 +122,8 @@ var player = (function() {
         track.buffer = decodedData;
       });
 
+
+
       if (meta) {
         content = meta.title;
         if (meta.artist) content += ' - ' + meta.artist + ' ('+ name +')';
@@ -120,6 +146,8 @@ var player = (function() {
       li.addEventListener('click', function(e) {
         player.playSound(player.tracks[index]);
       });
+
+      wrap.classList.remove('disabled');
     },
     getMetadata: function(obj) {
       var res = { title: '', artist: ''},
@@ -156,12 +184,59 @@ var player = (function() {
 
       destination = context.destination;
 
-      source.connect(destination);
+      analyser = context.createAnalyser();
+      analyser.minDecibels = -90;
+      analyser.maxDecibels = -10;
+      analyser.smoothingTimeConstant = 0.85;
+      analyser.fftSize = 2048;
 
+
+      bufferLength = analyser.fftSize;
+      dataArray = new Uint8Array(bufferLength);
+
+      canvasCtx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+      this.canvasDraw();
+
+      source.connect(analyser);
+      analyser.connect(destination);
       source.start(0);
     },
     stop: function() {
       if (source) source.stop(0);
+    },
+    canvasDraw: function() {
+      drawVisual = requestAnimationFrame(player.canvasDraw);
+
+      analyser.getByteTimeDomainData(dataArray);
+
+      canvasCtx.fillStyle = 'rgb(250, 250, 250)';
+      canvasCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+      canvasCtx.lineWidth = 2;
+      canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+
+      canvasCtx.beginPath();
+
+      var sliceWidth = canvasWidth * 1.0 / bufferLength;
+      var x = 0;
+
+      for(var i = 0; i < bufferLength; i++) {
+
+        var v = dataArray[i] / 128.0;
+        var y = v * canvasHeight/2;
+
+        if(i === 0) {
+          canvasCtx.moveTo(x, y);
+        } else {
+          canvasCtx.lineTo(x, y);
+        }
+
+        x += sliceWidth;
+      }
+
+      canvasCtx.lineTo(canvas.width, canvas.height/2);
+      canvasCtx.stroke();
     }
   };
 
