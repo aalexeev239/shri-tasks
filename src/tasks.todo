@@ -32,13 +32,25 @@ Tasks:
 
 Создайте с помощью WebAudio API плеер, который:
 
-умеет открывать аудиофайлы (поддерживаемых браузером форматов) с локального диска;
-поддерживает drag'n'drop;
-имеет кнопки play и stop;
-выводит название проигрываемого файла;
-умеет отображать хотя бы один вариант визуализации (waveform или spectrum);
-работает в Яндекс.Браузере, Safari, Chrome, Firefox.
+ ✔ умеет открывать аудиофайлы (поддерживаемых браузером форматов) с локального диска; @done (15-08-16 18:55)
+ ✔ поддерживает drag'n'drop; @done (15-08-16 18:54)
+ ✔ имеет кнопки play и stop; @done (15-08-16 18:54)
+ ✔ выводит название проигрываемого файла; @done (15-08-16 18:54)
+ ☐ умеет отображать хотя бы один вариант визуализации (waveform или spectrum);
+ ☐ работает в Яндекс.Браузере, Safari, Chrome, Firefox.
 Дополнительно реализуйте возможность:
 
 выбора настройки эквалайзера (pop, rock, jazz, classic, normal);
-вывод названия песни и исполнителя из метаданных аудиофайла.
+ ✔ вывод названия песни и исполнителя из метаданных аудиофайла. @done (15-08-16 18:55)
+
+http://blog.teamtreehouse.com/reading-files-using-the-html5-filereader-api
+http://blog.teamtreehouse.com/implementing-native-drag-and-drop
+
+
+ ☐ http://kodogames.com/web-audio-api-tutorial/
+ ☐ http://code.tutsplus.com/tutorials/the-web-audio-api-what-is-it--cms-23735
+ ☐ https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
+ ☐ http://www.sitepoint.com/html5-web-audio-api-tutorial-building-virtual-synth-pad/
+ ☐
+ ☐ http://blog.teamtreehouse.com/implementing-native-drag-and-drop
+ ☐ http://www.html5rocks.com/ru/tutorials/file/dndfiles/

@@ -1,5 +1,5 @@
 ---
-title: "Шаблон страницы"
+title: "Плеер"
 PixLayout: false
 PLimage: "screenshot.png"
 PLopacity: 0.6
@@ -7,11 +7,23 @@ PLcenter: false
 PLtop: 0
 PLleft: 0
 ---
+<div class="container">
+  <div class="player" id="js-player">
+    <div class="player__controls">
+      <a href="##" class="player__control" id="js-player-play">play</a>
+      <a href="##" class="player__control" id="js-player-stop">stop</a>
+    </div>
+    <label class="player__upload" for="js-player-upload">
+      <input type="file" name="js-player-upload" id="js-player-upload" multiple>
+      <div class="player__dropzone" id="js-player-dropzone">
+        <span class="player__dropzone-text">
+          Добавьте файлы сюда, хорошо?
+        </span>
+      </div>
+    </label>
 
-<div class="player" id="js-player">
-  <div class="player__controls">
-    <a href="##" class="player__control" id="js-player-play">play</a>
-    <a href="##" class="player__control" id="js-player-stop">stop</a>
+    <ol class="player__list" id="js-player-list"></ol>
   </div>
-
 </div>
+
+<script type="text/javascript" src="js/lib/audio-metadata.min.js"></script>

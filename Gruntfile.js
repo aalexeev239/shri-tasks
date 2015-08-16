@@ -87,7 +87,7 @@ module.exports = function(grunt) {
 
     assemble: {
       options: {
-        onProduction: true,
+        onProduction: false,
         helpers: ['<%= config.src %>/_templates/helpers/*.js'],
         flatten: true,
         assets: '<%= config.src %>',

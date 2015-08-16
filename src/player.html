@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=1260">
-    <title>Шаблон страницы</title>
+    <title>Плеер</title>
 
 
     <link href="./css/styles.min.css" rel="stylesheet" media="screen">
@@ -42,14 +42,26 @@
 
       <main class="page-content">
         
+<div class="container">
+  <div class="player" id="js-player">
+    <div class="player__controls">
+      <a href="##" class="player__control" id="js-player-play">play</a>
+      <a href="##" class="player__control" id="js-player-stop">stop</a>
+    </div>
+    <label class="player__upload" for="js-player-upload">
+      <input type="file" name="js-player-upload" id="js-player-upload" multiple>
+      <div class="player__dropzone" id="js-player-dropzone">
+        <span class="player__dropzone-text">
+          Добавьте файлы сюда, хорошо?
+        </span>
+      </div>
+    </label>
 
-<div class="player" id="js-player">
-  <div class="player__controls">
-    <a href="##" class="player__control" id="js-player-play">play</a>
-    <a href="##" class="player__control" id="js-player-stop">stop</a>
+    <ol class="player__list" id="js-player-list"></ol>
   </div>
-
 </div>
+
+<script type="text/javascript" src="js/lib/audio-metadata.min.js"></script>
       </main>
 
 
