@@ -111,7 +111,7 @@ var flightTable = (function() {
         return function(ev){
           ev.stopPropagation();
           flightTable.fillPopup(row);
-        }
+        };
       }
 
       // dont show popup when external link clicked

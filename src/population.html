@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=1260">
-    <title>Шаблон страницы</title>
+    <title>Популяции</title>
 
 
     <link href="./css/styles.min.css" rel="stylesheet" media="screen">
@@ -95,121 +95,115 @@
 
 
 
+      var requests = ['/countries', '/cities', '/populations'];
+      var responses = {};
+      var callback = function (request) {
+
+        return function(error, result) {
+
+          if (error) {
+            console.log("Stopped calculation with error: "+error);
+            return false;
+          }
+
+          responses[request] = result;
+
+          population.checkResult();
+        };
+      };
 
       var population = {
-          init: function(){
-              /**
-               * Ваши изменения ниже
-               */
-              var requests = ['/countries', '/cities', '/populations'];
-              var responses = {};
-              var callback = function (request) {
 
-                  return function(error, result) {
+        init: function(){
+            // send requests
+            for (var i = 0; i < 3; i++) {
+                var request = requests[i];
 
-                      if (error) {
-                          console.log("Stopped calculation with error: "+error);
-                          return false;
-                      }
-
-                      responses[request] = result;
-
-                      checkResult();
-                  }
-              };
-
-
-              // send requests
-              for (var i = 0; i < 3; i++) {
-                  var request = requests[i];
-
-                  getData(request, callback(request));
-              }
-
-              // check if all responses are collected
-              var checkResult = function () {
-                  var counter = 0;
-                  for (var K in responses) {
-                      if (responses.hasOwnProperty(K)) {
-                          counter++;
-                      }
-                  }
-
-                  if (counter == 3) {
-                      calc();
-                  }
-              }
-
-              // calc the result
-              function calc() {
-                  var c = [], cc = [], p = 0, i, j;
-                  var search = prompt('Please type country or city name.\nLeave the field blank, to show population in Africa');
-
-                  // default – Africa population
-                  if (!search.length) {
-
-                      for (i = responses['/countries'].length - 1; i>=0; i--) {
-                          if (responses['/countries'][i].continent === 'Africa') {
-                              c.push(responses['/countries'][i].name);
-                          }
-                      }
-
-                      for (i = responses['/cities'].length - 1; i>=0; i--) {
-                          for (j = c.length - 1; j>=0; j--) {
-                              if (responses['/cities'][i].country === c[j]) {
-                                  cc.push(responses['/cities'][i].name);
-                              }
-                          }
-                      }
-
-                      for (i = responses['/populations'].length - 1; i>=0; i--) {
-                          for (j = cc.length - 1; j>=0; j--) {
-                              if (responses['/populations'][i].name === cc[j]) {
-                                  p += responses['/populations'][i].count;
-                              }
-                          }
-                      }
-
-                  console.log('Total population in African cities: ' + p);
-
-                  // country or city was prompted
-                  } else {
-
-                      // check countries
-                      for (i = responses['/cities'].length - 1; i>=0; i--) {
-                          if (responses['/cities'][i].country === search) {
-                              cc.push(responses['/cities'][i].name);
-                          }
-                      }
-
-                      // country was chosen, calc city population
-                      if (cc.length) {
-                          for (i = responses['/populations'].length - 1; i>=0; i--) {
-                              for (j = cc.length - 1; j>=0; j--) {
-                                  if (responses['/populations'][i].name === cc[j]) {
-                                      p += responses['/populations'][i].count;
-                                  }
-                              }
-                          }
-
-                          console.log('Total population in '+search+' country: ' + p);
-                      // no country found, check city
-                      } else {
-                          for (i = responses['/populations'].length - 1; i>=0; i--) {
-                              if (responses['/populations'][i].name === search) {
-                                  p += responses['/populations'][i].count;
-                              }
-                          }
-
-                          if (p > 0) {
-                              console.log('Total population in '+search+' city: ' + p);
-                          } else {
-                              console.log('Error: no city or country found');
-                          }
-                      }
-                  }
-              }
+              getData(request, callback(request));
+            }
+        },
+        // check if all responses are collected
+        checkResult: function () {
+          var counter = 0;
+          for (var K in responses) {
+            if (responses.hasOwnProperty(K)) {
+              counter++;
+            }
           }
+
+          if (counter == 3) {
+            this.calc();
+          }
+        },
+        // calc the result
+        calc: function () {
+          var c = [], cc = [], p = 0, i, j;
+          var search = prompt('Please type country or city name.\nLeave the field blank, to show population in Africa');
+
+          // default – Africa population
+          if (!search.length) {
+
+            for (i = responses['/countries'].length - 1; i>=0; i--) {
+              if (responses['/countries'][i].continent === 'Africa') {
+                c.push(responses['/countries'][i].name);
+              }
+            }
+
+            for (i = responses['/cities'].length - 1; i>=0; i--) {
+              for (j = c.length - 1; j>=0; j--) {
+                if (responses['/cities'][i].country === c[j]) {
+                  cc.push(responses['/cities'][i].name);
+                }
+              }
+            }
+
+            for (i = responses['/populations'].length - 1; i>=0; i--) {
+              for (j = cc.length - 1; j>=0; j--) {
+                if (responses['/populations'][i].name === cc[j]) {
+                  p += responses['/populations'][i].count;
+                }
+              }
+            }
+
+            console.log('Total population in African cities: ' + p);
+
+          // country or city was prompted
+          } else {
+
+            // check countries
+            for (i = responses['/cities'].length - 1; i>=0; i--) {
+              if (responses['/cities'][i].country === search) {
+                cc.push(responses['/cities'][i].name);
+              }
+            }
+
+            // country was chosen, calc city population
+            if (cc.length) {
+              for (i = responses['/populations'].length - 1; i>=0; i--) {
+                for (j = cc.length - 1; j>=0; j--) {
+                  if (responses['/populations'][i].name === cc[j]) {
+                    p += responses['/populations'][i].count;
+                  }
+                }
+              }
+              console.log('Total population in '+search+' country: ' + p);
+
+            // no country found, check city
+            } else {
+              for (i = responses['/populations'].length - 1; i>=0; i--) {
+                if (responses['/populations'][i].name === search) {
+                  p += responses['/populations'][i].count;
+                }
+              }
+
+              if (p > 0) {
+                console.log('Total population in '+search+' city: ' + p);
+              } else {
+                console.log('Error: no city or country found');
+              }
+            }
+          }
+        }
       };
 
       return population;
